@@ -1,0 +1,2120 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Belajar Interaktif - Pendidikan Pancasila Kelas VII | SMP AL-AKHYAR</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        garuda: {
+                            red: '#C8102E',
+                            darkred: '#990B22',
+                            gold: '#D97706',
+                            lightgold: '#FEF3C7',
+                            navy: '#0F172A',
+                            slate: '#1E293B',
+                            cream: '#FFFBEB'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom 3D Flashcard Flip Animation & Scrollbar Styling */
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+        .transform-style-3d {
+            transform-style: preserve-3d;
+            transition: transform 0.65s cubic-bezier(0.4, 0.2, 0.2, 1);
+        }
+        .backface-hidden {
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+        .rotate-y-180 {
+            transform: rotateY(180deg);
+        }
+        .flipped .transform-style-3d {
+            transform: rotateY(180deg);
+        }
+        
+        /* Subtle Nusantara Geometric Pattern Overlay */
+        .bg-nusantara {
+            background-color: #0F172A;
+            background-image: radial-gradient(rgba(217, 119, 6, 0.14) 1px, transparent 1px),
+                              radial-gradient(rgba(200, 16, 46, 0.12) 1px, #0F172A 1px);
+            background-size: 32px 32px;
+            background-position: 0 0, 16px 16px;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(217, 119, 6, 0.4); }
+            50% { box-shadow: 0 0 0 8px rgba(217, 119, 6, 0); }
+        }
+        .animate-glow {
+            animation: pulseGlow 2.5s infinite;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+
+    <!-- ==================== HEADER & HERO SECTION ==================== -->
+    <header class="bg-nusantara text-white relative overflow-hidden border-b-4 border-amber-500 shadow-xl">
+        <!-- Decorative Top Bar Merah Putih -->
+        <div class="h-1.5 w-full flex">
+            <div class="w-1/2 bg-red-600"></div>
+            <div class="w-1/2 bg-white"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 relative z-10">
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+                <!-- Branding & Title -->
+                <div class="flex items-start sm:items-center gap-4">
+                    <!-- Emblem SVG Garuda / Perisai Pancasila -->
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-red-600 via-red-700 to-amber-600 p-0.5 shadow-lg shrink-0 flex items-center justify-center">
+                        <div class="w-full h-full bg-slate-900 rounded-[14px] flex items-center justify-center relative">
+                            <svg class="w-9 h-9 text-amber-400" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm0 4.2l1.45 2.94 3.24.47-2.35 2.29.55 3.23L12 13.6l-2.89 1.53.55-3.23-2.35-2.29 3.24-.47L12 6.2z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap items-center gap-2 mb-1.5">
+                            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold tracking-wider uppercase bg-red-600/90 text-white border border-red-400/30">
+                                SMP AL-AKHYAR
+                            </span>
+                            <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-500/20 text-amber-300 border border-amber-400/30">
+                                Kelas VII • Semester 1 • TA 2026/2027
+                            </span>
+                        </div>
+                        <h1 class="font-display text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
+                            Media Belajar Interaktif <span class="text-amber-400">Pendidikan Pancasila</span>
+                        </h1>
+                        <p class="text-slate-300 text-xs sm:text-sm mt-1 max-w-2xl">
+                            Persiapan Sumatif Akhir Semester (SAS): Ringkasan Materi, Kisi-Kisi Lengkap, Flashcards 3D, Bank Soal 40 PG & 10 Uraian Berbasis Rubrik.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Live Progress Summary Card -->
+                <div class="bg-slate-800/80 backdrop-blur-md border border-slate-700/80 rounded-2xl p-4 flex flex-wrap sm:flex-nowrap items-center gap-4 shadow-inner">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-lg">
+                            <i class="fa-solid fa-award"></i>
+                        </div>
+                        <div>
+                            <div class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Nilai Gabungan</div>
+                            <div class="text-xl font-display font-extrabold text-white" id="header-total-score">0.0</div>
+                        </div>
+                    </div>
+                    <div class="h-8 w-px bg-slate-700 hidden sm:block"></div>
+                    <div class="grid grid-cols-2 gap-3 text-xs">
+                        <div class="bg-slate-900/70 px-3 py-1.5 rounded-xl border border-slate-700/50">
+                            <span class="text-slate-400 block">Skor PG (70%)</span>
+                            <span class="font-bold text-amber-400" id="header-pg-score">0/40</span>
+                        </div>
+                        <div class="bg-slate-900/70 px-3 py-1.5 rounded-xl border border-slate-700/50">
+                            <span class="text-slate-400 block">Uraian (30%)</span>
+                            <span class="font-bold text-sky-400" id="header-uraian-score">0/40</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== STICKY NAVIGATION TABS ==================== -->
+    <nav class="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex overflow-x-auto no-scrollbar py-2.5 gap-2" role="tablist">
+                <button onclick="switchTab('materi')" id="tab-btn-materi" class="tab-btn active flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold whitespace-nowrap transition-all bg-red-600 text-white shadow-md shadow-red-600/20">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>1. Ringkasan Materi & Kisi-Kisi</span>
+                </button>
+                <button onclick="switchTab('flashcards')" id="tab-btn-flashcards" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold whitespace-nowrap transition-all text-slate-600 hover:bg-slate-100">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <span>2. Flashcards Hafalan Cepat</span>
+                    <span class="px-2 py-0.5 text-[11px] rounded-full bg-amber-100 text-amber-800 font-bold">24 Kartu</span>
+                </button>
+                <button onclick="switchTab('kuis')" id="tab-btn-kuis" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold whitespace-nowrap transition-all text-slate-600 hover:bg-slate-100">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <span>3. Kuis Pilihan Ganda</span>
+                    <span class="px-2 py-0.5 text-[11px] rounded-full bg-red-100 text-red-700 font-bold">40 Soal</span>
+                </button>
+                <button onclick="switchTab('uraian')" id="tab-btn-uraian" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold whitespace-nowrap transition-all text-slate-600 hover:bg-slate-100">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    <span>4. Latihan Uraian & Rubrik</span>
+                    <span class="px-2 py-0.5 text-[11px] rounded-full bg-sky-100 text-sky-700 font-bold">10 Soal</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== MAIN CONTENT CONTAINER ==================== -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+
+        <!-- ===================================================================
+             TAB 1: RINGKASAN MATERI & KISI-KISI INTERAKTIF
+             =================================================================== -->
+        <section id="section-materi" class="tab-section space-y-8">
+            <!-- Sub-Header -->
+            <div class="bg-gradient-to-r from-amber-50 via-white to-red-50 border border-amber-200/80 rounded-2xl p-5 sm:p-6 flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-sm">
+                <div>
+                    <h2 class="font-display text-xl sm:text-2xl font-bold text-slate-900 flex items-center gap-2.5">
+                        <span class="w-8 h-8 rounded-lg bg-amber-500 text-white flex items-center justify-center text-sm"><i class="fa-solid fa-compass"></i></span>
+                        Peta Konsep Materi & Kisi-Kisi SAS
+                    </h2>
+                    <p class="text-slate-600 text-sm mt-1">Pelajari ringkasan inti 3 Bab Semester 1 dan telusuri kisi-kisi lengkap 50 butir soal berdasarkan level kognitif.</p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="switchTab('flashcards')" class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs sm:text-sm font-semibold transition flex items-center gap-2">
+                        <i class="fa-solid fa-bolt text-amber-400"></i> Uji Hafalan Flashcards
+                    </button>
+                    <button onclick="switchTab('kuis')" class="px-4 py-2 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs sm:text-sm font-semibold transition flex items-center gap-2">
+                        <i class="fa-solid fa-play"></i> Mulai Latihan Soal
+                    </button>
+                </div>
+            </div>
+
+            <!-- Interactive Chapter Selector Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <button onclick="selectChapter(1)" id="chap-card-1" class="chap-card text-left p-5 rounded-2xl border-2 border-red-600 bg-white shadow-md transition-all relative overflow-hidden group">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold bg-red-100 text-red-700">BAB I • 14 PG + 3 Uraian</span>
+                        <i class="fa-solid fa-landmark text-red-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-slate-900 group-hover:text-red-600 transition">Sejarah Kelahiran Pancasila</h3>
+                    <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">Latar sejarah, sidang BPUPKI I & II, Piagam Jakarta, pengesahan PPKI 18 Agustus 1945, & keteladanan pendiri bangsa.</p>
+                </button>
+
+                <button onclick="selectChapter(2)" id="chap-card-2" class="chap-card text-left p-5 rounded-2xl border-2 border-slate-200 bg-white hover:border-amber-400 shadow-sm transition-all relative overflow-hidden group">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800">BAB II • 13 PG + 2 Uraian</span>
+                        <i class="fa-solid fa-hands-holding-circle text-amber-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-slate-900 group-hover:text-amber-600 transition">Penerapan Nilai-Nilai Pancasila</h3>
+                    <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">Kedudukan Pancasila (Dasar Negara, Pandangan Hidup, Ideologi), makna sila 1-5, gotong royong daerah, & karakter pelajar.</p>
+                </button>
+
+                <button onclick="selectChapter(3)" id="chap-card-3" class="chap-card text-left p-5 rounded-2xl border-2 border-slate-200 bg-white hover:border-sky-400 shadow-sm transition-all relative overflow-hidden group">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold bg-sky-100 text-sky-800">BAB III • 13 PG + 5 Uraian</span>
+                        <i class="fa-solid fa-scale-balanced text-sky-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-slate-900 group-hover:text-sky-600 transition">Patuh Terhadap Norma</h3>
+                    <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">Kodrat manusia (Monodualis/Zoon Politikon), arti & fungsi norma, 4 macam norma (sumber & sanksi), & ketaatan hukum.</p>
+                </button>
+            </div>
+
+            <!-- Chapter Detailed Summary Box -->
+            <div id="chapter-detail-container" class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+                <!-- Content injected dynamically by JS -->
+            </div>
+
+            <!-- Interactive Kisi-Kisi Table -->
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                <div class="p-5 sm:p-6 border-b border-slate-200 bg-slate-50/70 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                    <div>
+                        <h3 class="font-display text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2">
+                            <i class="fa-solid fa-table-list text-red-600"></i>
+                            Tabel Kisi-Kisi Soal SAS (50 Butir Soal)
+                        </h3>
+                        <p class="text-xs text-slate-500 mt-0.5">Filter kisi-kisi berdasarkan Bab, Bentuk Soal, atau Level Kognitif (L1 Pemahaman, L2 Penerapan, L3 Penalaran/HOTS).</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <select id="filter-kisi-bab" onchange="renderKisiTable()" class="px-3 py-2 rounded-xl border border-slate-300 bg-white text-xs sm:text-sm font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-red-500">
+                            <option value="all">Semua Bab (Bab I - III)</option>
+                            <option value="1">Bab I: Sejarah Kelahiran Pancasila</option>
+                            <option value="2">Bab II: Penerapan Nilai Pancasila</option>
+                            <option value="3">Bab III: Patuh Terhadap Norma</option>
+                        </select>
+                        <select id="filter-kisi-level" onchange="renderKisiTable()" class="px-3 py-2 rounded-xl border border-slate-300 bg-white text-xs sm:text-sm font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-red-500">
+                            <option value="all">Semua Level Kognitif</option>
+                            <option value="L1">L1 (Pengetahuan/Pemahaman)</option>
+                            <option value="L2">L2 (Aplikasi/Penerapan)</option>
+                            <option value="L3">L3 (Penalaran / HOTS)</option>
+                        </select>
+                        <select id="filter-kisi-bentuk" onchange="renderKisiTable()" class="px-3 py-2 rounded-xl border border-slate-300 bg-white text-xs sm:text-sm font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-red-500">
+                            <option value="all">Semua Bentuk (PG & Uraian)</option>
+                            <option value="PG">Pilihan Ganda (No. 1 - 40)</option>
+                            <option value="Uraian">Uraian (No. 41 - 50)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slate-900 text-white text-xs uppercase tracking-wider">
+                                <th class="py-3.5 px-4 font-semibold w-16 text-center">No.</th>
+                                <th class="py-3.5 px-4 font-semibold w-36">Bab / Materi</th>
+                                <th class="py-3.5 px-4 font-semibold">Indikator Pencapaian Kompetensi</th>
+                                <th class="py-3.5 px-4 font-semibold w-28 text-center">Level</th>
+                                <th class="py-3.5 px-4 font-semibold w-28 text-center">Bentuk</th>
+                                <th class="py-3.5 px-4 font-semibold w-28 text-center">Latihan</th>
+                            </tr>
+                        </thead>
+                        <tbody id="kisi-table-body" class="divide-y divide-slate-200 text-sm">
+                            <!-- Rows injected by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===================================================================
+             TAB 2: FLASHCARDS HAFALAN CEPAT (3D FLIP)
+             =================================================================== -->
+        <section id="section-flashcards" class="tab-section hidden space-y-6">
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                    <h2 class="font-display text-xl sm:text-2xl font-bold text-slate-900 flex items-center gap-2.5">
+                        <span class="w-8 h-8 rounded-lg bg-amber-500 text-white flex items-center justify-center text-sm"><i class="fa-solid fa-bolt"></i></span>
+                        Flashcards Hafalan Cepat (3D Flip)
+                    </h2>
+                    <p class="text-slate-600 text-sm mt-1">Klik kartu untuk membalik dan melihat jawaban. Gunakan filter kategori atau tandai kartu yang sudah kamu kuasai!</p>
+                </div>
+                <div class="flex flex-wrap items-center gap-2">
+                    <select id="flashcard-category" onchange="filterFlashcards()" class="px-3.5 py-2 rounded-xl border border-slate-300 bg-slate-50 text-sm font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-amber-500">
+                        <option value="all">Semua Kategori (24 Kartu)</option>
+                        <option value="Sejarah & BPUPKI">Sejarah, BPUPKI & PPKI</option>
+                        <option value="Tokoh & Piagam Jakarta">Tokoh Perumus & Piagam Jakarta</option>
+                        <option value="Kedudukan & Gotong Royong">Kedudukan Pancasila & Gotong Royong</option>
+                        <option value="Norma & Sanksi">4 Macam Norma, Sumber & Sanksi</option>
+                    </select>
+                    <button onclick="shuffleFlashcards()" class="px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-semibold transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-shuffle"></i> Acak Kartu
+                    </button>
+                </div>
+            </div>
+
+            <!-- Flashcard Progress & Stats -->
+            <div class="max-w-2xl mx-auto">
+                <div class="flex items-center justify-between text-xs sm:text-sm font-semibold text-slate-600 mb-2">
+                    <span>Kartu <span id="fc-current-idx" class="text-slate-900 font-bold">1</span> dari <span id="fc-total-count" class="text-slate-900 font-bold">24</span></span>
+                    <span class="text-emerald-600 flex items-center gap-1"><i class="fa-solid fa-circle-check"></i> Dikuasai: <span id="fc-mastered-count">0</span> kartu</span>
+                </div>
+                <div class="w-full h-2.5 bg-slate-200 rounded-full overflow-hidden mb-6">
+                    <div id="fc-progress-bar" class="h-full bg-gradient-to-r from-amber-500 to-red-600 transition-all duration-300" style="width: 4.16%;"></div>
+                </div>
+
+                <!-- 3D Flip Card Container -->
+                <div id="flashcard-wrapper" onclick="flipFlashcard()" class="perspective-1000 w-full h-80 sm:h-96 cursor-pointer select-none group">
+                    <div id="flashcard-inner" class="transform-style-3d relative w-full h-full">
+                        <!-- FRONT SIDE -->
+                        <div class="backface-hidden absolute inset-0 rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 border-2 border-amber-500/40 p-6 sm:p-10 flex flex-col justify-between text-white shadow-xl">
+                            <div class="flex items-center justify-between">
+                                <span id="fc-badge-cat" class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-400/30">
+                                    Sejarah & BPUPKI
+                                </span>
+                                <span id="fc-mastered-badge" class="hidden px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">
+                                    <i class="fa-solid fa-check mr-1"></i> Sudah Hafal
+                                </span>
+                            </div>
+
+                            <div class="text-center my-auto px-2">
+                                <div class="text-xs uppercase tracking-widest text-slate-400 mb-2 font-semibold">Pertanyaan / Konsep</div>
+                                <h3 id="fc-front-text" class="font-display text-xl sm:text-2xl md:text-3xl font-bold leading-snug text-white">
+                                    Kapan BPUPKI dibentuk oleh Jepang dan siapa ketuanya?
+                                </h3>
+                            </div>
+
+                            <div class="flex items-center justify-center gap-2 text-xs text-amber-400 font-medium">
+                                <i class="fa-solid fa-rotate"></i>
+                                <span>Klik kartu atau tekan Spasi untuk melihat jawaban</span>
+                            </div>
+                        </div>
+
+                        <!-- BACK SIDE -->
+                        <div class="backface-hidden rotate-y-180 absolute inset-0 rounded-3xl bg-gradient-to-br from-red-700 via-red-800 to-slate-900 border-2 border-red-400/50 p-6 sm:p-10 flex flex-col justify-between text-white shadow-xl">
+                            <div class="flex items-center justify-between">
+                                <span class="px-3 py-1 rounded-full text-xs font-bold bg-white/15 text-white">
+                                    Jawaban & Penjelasan Kunci
+                                </span>
+                                <i class="fa-solid fa-lightbulb text-amber-300 text-lg"></i>
+                            </div>
+
+                            <div class="text-center my-auto px-2">
+                                <p id="fc-back-text" class="text-lg sm:text-xl md:text-2xl font-bold leading-relaxed text-amber-100">
+                                    Diumumkan pada 1 Maret 1945 (berdiri resmi 29 April 1945) dengan ketua Dr. K.R.T. Radjiman Wedyodiningrat.
+                                </p>
+                                <p id="fc-back-note" class="text-xs sm:text-sm text-red-100/90 mt-3 bg-black/25 p-3 rounded-xl">
+                                    Dalam bahasa Jepang disebut Dokuritsu Junbi Cosakai.
+                                </p>
+                            </div>
+
+                            <div class="flex items-center justify-center gap-2 text-xs text-white/80 font-medium">
+                                <i class="fa-solid fa-rotate-left"></i>
+                                <span>Klik lagi untuk kembali ke pertanyaan</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Flashcard Controls -->
+                <div class="mt-6 flex flex-wrap items-center justify-between gap-3">
+                    <button onclick="prevFlashcard()" class="px-5 py-3 rounded-xl bg-white border border-slate-300 hover:bg-slate-100 text-slate-700 font-bold text-sm shadow-sm transition flex items-center gap-2">
+                        <i class="fa-solid fa-arrow-left"></i> Sebelumnya
+                    </button>
+
+                    <button onclick="toggleMasteredFlashcard()" id="btn-mark-mastered" class="px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-md transition flex items-center gap-2">
+                        <i class="fa-solid fa-check-double"></i> Tandai Sudah Hafal
+                    </button>
+
+                    <button onclick="nextFlashcard()" class="px-5 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm shadow-sm transition flex items-center gap-2">
+                        Selanjutnya <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===================================================================
+             TAB 3: KUIS INTERAKTIF PILIHAN GANDA (40 SOAL)
+             =================================================================== -->
+        <section id="section-kuis" class="tab-section hidden space-y-6">
+            <!-- Quiz Control & Mode Header -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-sm">
+                <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                    <div>
+                        <h2 class="font-display text-xl sm:text-2xl font-bold text-slate-900 flex items-center gap-2.5">
+                            <span class="w-8 h-8 rounded-lg bg-red-600 text-white flex items-center justify-center text-sm"><i class="fa-solid fa-list-check"></i></span>
+                            Kuis Interaktif Pilihan Ganda (40 Soal)
+                        </h2>
+                        <p class="text-slate-600 text-sm mt-1">Pilih mode latihan per Bab atau Simulasi Ujian penuh 40 soal. Umpan balik & pembahasan kunci jawaban muncul otomatis!</p>
+                    </div>
+
+                    <!-- Mode & Timer Controls -->
+                    <div class="flex flex-wrap items-center gap-2.5">
+                        <select id="quiz-mode-select" onchange="changeQuizMode()" class="px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 text-xs sm:text-sm font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-red-500">
+                            <option value="all">Simulasi Penuh (Semua 40 Soal)</option>
+                            <option value="bab1">Latihan Bab I: Sejarah Pancasila (No. 1-14)</option>
+                            <option value="bab2">Latihan Bab II: Penerapan Nilai (No. 15-27)</option>
+                            <option value="bab3">Latihan Bab III: Patuh Norma (No. 28-40)</option>
+                        </select>
+
+                        <button onclick="toggleQuizTimer()" id="btn-toggle-timer" class="px-3.5 py-2.5 rounded-xl border border-amber-300 bg-amber-50 hover:bg-amber-100 text-amber-800 text-xs sm:text-sm font-bold transition flex items-center gap-2">
+                            <i class="fa-solid fa-stopwatch"></i>
+                            <span id="timer-display">Timer: Off</span>
+                        </button>
+
+                        <button onclick="shuffleCurrentQuiz()" class="px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white hover:bg-slate-100 text-slate-700 text-xs sm:text-sm font-semibold transition flex items-center gap-1.5" title="Acak Urutan Soal">
+                            <i class="fa-solid fa-shuffle"></i> Acak
+                        </button>
+
+                        <button onclick="openResetModal()" class="px-3.5 py-2.5 rounded-xl bg-red-50 hover:bg-red-100 text-red-700 border border-red-200 text-xs sm:text-sm font-bold transition flex items-center gap-1.5">
+                            <i class="fa-solid fa-rotate-right"></i> Ulangi Kuis
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="mt-5 pt-4 border-t border-slate-100">
+                    <div class="flex flex-wrap items-center justify-between text-xs font-semibold text-slate-600 mb-2 gap-2">
+                        <span>Terjawab: <strong id="quiz-answered-count" class="text-slate-900">0</strong> / <strong id="quiz-total-count" class="text-slate-900">40</strong> Soal</span>
+                        <div class="flex items-center gap-4">
+                            <span class="text-emerald-600"><i class="fa-solid fa-circle-check"></i> Benar: <strong id="quiz-correct-count">0</strong></span>
+                            <span class="text-rose-600"><i class="fa-solid fa-circle-xmark"></i> Salah: <strong id="quiz-wrong-count">0</strong></span>
+                            <span class="text-amber-600"><i class="fa-solid fa-star"></i> Skor: <strong id="quiz-percent-score">0%</strong></span>
+                        </div>
+                    </div>
+                    <div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden border border-slate-200/60">
+                        <div id="quiz-progress-bar" class="h-full bg-gradient-to-r from-red-600 via-amber-500 to-emerald-500 transition-all duration-300" style="width: 0%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Quiz Grid: Question Card (Left) & Number Navigator + Analytics (Right) -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                
+                <!-- Question Card (8 cols) -->
+                <div class="lg:col-span-8 space-y-4">
+                    <div id="quiz-question-card" class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+                        <!-- Metadata Badges -->
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-5">
+                            <div class="flex items-center gap-2">
+                                <span id="q-number-badge" class="px-3.5 py-1.5 rounded-xl bg-slate-900 text-white font-display font-bold text-sm">
+                                    Soal No. 1
+                                </span>
+                                <span id="q-bab-badge" class="px-3 py-1 rounded-lg bg-red-50 text-red-700 border border-red-200 text-xs font-bold">
+                                    Bab I: Sejarah Kelahiran Pancasila
+                                </span>
+                            </div>
+                            <span id="q-level-badge" class="px-2.5 py-1 rounded-lg bg-amber-100 text-amber-800 text-xs font-bold">
+                                Level L1
+                            </span>
+                        </div>
+
+                        <!-- Question Text -->
+                        <div id="q-text" class="text-base sm:text-lg font-semibold text-slate-900 leading-relaxed mb-6">
+                            <!-- Injected by JS -->
+                        </div>
+
+                        <!-- Options List -->
+                        <div id="q-options-container" class="space-y-3">
+                            <!-- Options A, B, C, D injected by JS -->
+                        </div>
+
+                        <!-- Instant Feedback & Pembahasan Box -->
+                        <div id="q-feedback-box" class="hidden mt-6 p-5 rounded-2xl border transition-all">
+                            <div class="flex items-start gap-3">
+                                <div id="q-feedback-icon" class="w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-0.5 text-white font-bold">
+                                    <i class="fa-solid fa-check"></i>
+                                </div>
+                                <div>
+                                    <h4 id="q-feedback-title" class="font-display font-bold text-base">Jawaban Kamu Benar!</h4>
+                                    <p id="q-feedback-explanation" class="text-sm mt-1.5 leading-relaxed"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Prev / Next Navigation Buttons -->
+                        <div class="mt-8 pt-5 border-t border-slate-100 flex items-center justify-between gap-3">
+                            <button onclick="prevQuizQuestion()" id="btn-q-prev" class="px-5 py-2.5 rounded-xl border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 font-bold text-sm transition flex items-center gap-2 disabled:opacity-40">
+                                <i class="fa-solid fa-chevron-left"></i> Sebelumnya
+                            </button>
+
+                            <button onclick="showQuizSummaryReport()" class="px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs sm:text-sm shadow-sm transition flex items-center gap-2">
+                                <i class="fa-solid fa-chart-pie"></i> Lihat Analisis Hasil
+                            </button>
+
+                            <button onclick="nextQuizQuestion()" id="btn-q-next" class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm transition flex items-center gap-2">
+                                Selanjutnya <i class="fa-solid fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Quiz Result & Mastery Analysis Card (Shown on demand or when finished) -->
+                    <div id="quiz-analysis-panel" class="hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white rounded-2xl p-6 sm:p-8 border-2 border-amber-500/50 shadow-xl">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-700 pb-5 mb-6">
+                            <div>
+                                <span class="text-xs uppercase tracking-wider text-amber-400 font-bold">Rapor Latihan Pilihan Ganda</span>
+                                <h3 class="font-display text-2xl font-extrabold mt-1">Analisis Penguasaan Materi Per Bab</h3>
+                            </div>
+                            <div id="quiz-predicate-badge" class="px-4 py-2 rounded-xl bg-emerald-500/20 border border-emerald-400 text-emerald-300 font-display font-bold text-sm text-center">
+                                Predikat: Sangat Baik
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                            <!-- Bab 1 Mastery -->
+                            <div class="bg-slate-800/90 p-4 rounded-xl border border-slate-700">
+                                <div class="text-xs text-slate-400 font-semibold">Bab I: Sejarah Pancasila</div>
+                                <div class="text-xl font-display font-bold text-white mt-1" id="stat-bab1-text">0 / 14 Benar</div>
+                                <div class="w-full h-2 bg-slate-700 rounded-full mt-2 overflow-hidden">
+                                    <div id="stat-bab1-bar" class="h-full bg-red-500" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            <!-- Bab 2 Mastery -->
+                            <div class="bg-slate-800/90 p-4 rounded-xl border border-slate-700">
+                                <div class="text-xs text-slate-400 font-semibold">Bab II: Penerapan Nilai</div>
+                                <div class="text-xl font-display font-bold text-white mt-1" id="stat-bab2-text">0 / 13 Benar</div>
+                                <div class="w-full h-2 bg-slate-700 rounded-full mt-2 overflow-hidden">
+                                    <div id="stat-bab2-bar" class="h-full bg-amber-500" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            <!-- Bab 3 Mastery -->
+                            <div class="bg-slate-800/90 p-4 rounded-xl border border-slate-700">
+                                <div class="text-xs text-slate-400 font-semibold">Bab III: Patuh Norma</div>
+                                <div class="text-xl font-display font-bold text-white mt-1" id="stat-bab3-text">0 / 13 Benar</div>
+                                <div class="w-full h-2 bg-slate-700 rounded-full mt-2 overflow-hidden">
+                                    <div id="stat-bab3-bar" class="h-full bg-sky-500" style="width: 0%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p id="quiz-recommendation-text" class="text-sm text-slate-300 bg-slate-950/60 p-4 rounded-xl border border-slate-700/80">
+                            Kerjakan soal pilihan ganda untuk melihat rekomendasi belajar yang dipersonalisasi sesuai hasil jawabanmu.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Number Navigator Sidebar (4 cols) -->
+                <div class="lg:col-span-4 bg-white rounded-2xl border border-slate-200 p-5 shadow-sm sticky top-20">
+                    <div class="flex items-center justify-between mb-3">
+                        <h3 class="font-display font-bold text-sm text-slate-900 uppercase tracking-wider">Navigasi Nomor Soal</h3>
+                        <span class="text-xs text-slate-500 font-medium">Klik nomor</span>
+                    </div>
+
+                    <!-- Legend -->
+                    <div class="flex flex-wrap gap-3 text-[11px] text-slate-600 mb-4 pb-3 border-b border-slate-100">
+                        <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded bg-slate-900 inline-block"></span> Aktif</span>
+                        <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded bg-emerald-500 inline-block"></span> Benar</span>
+                        <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded bg-rose-500 inline-block"></span> Salah</span>
+                        <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded bg-slate-100 border border-slate-300 inline-block"></span> Belum</span>
+                    </div>
+
+                    <div id="quiz-number-grid" class="grid grid-cols-5 sm:grid-cols-8 lg:grid-cols-5 gap-2 max-h-96 overflow-y-auto pr-1">
+                        <!-- Number buttons injected by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===================================================================
+             TAB 4: LATIHAN URAIAN & RUBRIK PENILAIAN (10 SOAL: NO. 41 - 50)
+             =================================================================== -->
+        <section id="section-uraian" class="tab-section hidden space-y-6">
+            <!-- Header & Self-Assessment Score Banner -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-sm flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                <div>
+                    <h2 class="font-display text-xl sm:text-2xl font-bold text-slate-900 flex items-center gap-2.5">
+                        <span class="w-8 h-8 rounded-lg bg-sky-600 text-white flex items-center justify-center text-sm"><i class="fa-solid fa-file-pen"></i></span>
+                        Latihan Soal Uraian & Rubrik Penilaian Mandiri (No. 41 - 50)
+                    </h2>
+                    <p class="text-slate-600 text-sm mt-1">Ketik jawabanmu pada kolom yang tersedia, lalu klik <strong>"Lihat Kunci Jawaban & Rubrik Skor"</strong> untuk menilai hasil pekerjaanmu secara jujur (Skor 0–4 per soal).</p>
+                </div>
+
+                <div class="bg-sky-50 border border-sky-200 rounded-2xl px-5 py-3.5 flex items-center gap-4 shrink-0">
+                    <div>
+                        <div class="text-xs font-bold uppercase text-sky-700">Total Skor Uraian</div>
+                        <div class="font-display text-2xl font-extrabold text-slate-900">
+                            <span id="uraian-total-points">0</span> <span class="text-sm font-semibold text-slate-500">/ 40 Poin</span>
+                        </div>
+                    </div>
+                    <div class="h-10 w-px bg-sky-200"></div>
+                    <div>
+                        <div class="text-xs font-bold uppercase text-sky-700">Nilai Skala 100</div>
+                        <div class="font-display text-2xl font-extrabold text-sky-700" id="uraian-percent-display">0%</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- List of 10 Essay Questions -->
+            <div id="uraian-questions-container" class="space-y-6">
+                <!-- Essay cards injected by JS -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==================== CUSTOM CONFIRMATION MODAL (NO alert/confirm) ==================== -->
+    <div id="reset-modal" class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200 transform transition-all">
+            <div class="w-12 h-12 rounded-full bg-red-100 text-red-600 flex items-center justify-center text-xl mb-4">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <h3 class="font-display text-xl font-bold text-slate-900">Ulangi Kuis Pilihan Ganda?</h3>
+            <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+                Semua jawaban dan skor Pilihan Ganda saat ini akan dihapus sehingga kamu bisa berlatih kembali dari awal. Apakah kamu yakin?
+            </p>
+            <div class="mt-6 flex items-center justify-end gap-3">
+                <button onclick="closeResetModal()" class="px-4 py-2.5 rounded-xl border border-slate-300 text-slate-700 font-semibold text-sm hover:bg-slate-50 transition">
+                    Batal
+                </button>
+                <button onclick="confirmResetQuiz()" class="px-4 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-sm shadow-md transition">
+                    Ya, Ulangi Kuis
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast-notification" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="bg-slate-900 text-white px-4 py-3 rounded-xl shadow-xl border border-slate-700 flex items-center gap-3 text-sm font-medium">
+            <i id="toast-icon" class="fa-solid fa-circle-info text-amber-400"></i>
+            <span id="toast-message">Pesan notifikasi</span>
+        </div>
+    </div>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-slate-900 text-slate-400 border-t border-slate-800 py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+            <div class="flex items-center gap-2 text-slate-300 font-semibold">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-600"></span>
+                <span>SMP AL-AKHYAR • Pendidikan Pancasila Kelas VII Semester 1 (TA 2026/2027)</span>
+            </div>
+            <div>
+                Berdasarkan Dokumen Bank Soal & Kisi-Kisi SAS Kelas VII • Semangat Belajar & Jujur dalam Berlatih!
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== JAVASCRIPT APPLICATION LOGIC ==================== -->
+    <script>
+        /* =====================================================================
+           1. DATA RINGKASAN MATERI PER BAB
+           ===================================================================== */
+        const chapterSummaries = {
+            1: {
+                title: "Bab I: Sejarah Kelahiran Pancasila",
+                subtitle: "Perjalanan panjang perumusan hingga pengesahan dasar negara Republik Indonesia",
+                badgeColor: "red",
+                sections: [
+                    {
+                        heading: "1. Pembentukan & Sidang Pertama BPUPKI (29 Mei – 1 Juni 1945)",
+                        points: [
+                            "<strong>BPUPKI</strong> (<em>Dokuritsu Junbi Cosakai</em>) diumumkan Jepang pada <strong>1 Maret 1945</strong> dan diresmikan <strong>29 April 1945</strong>, diketuai oleh <strong>Dr. K.R.T. Radjiman Wedyodiningrat</strong>.",
+                            "Sidang pertama membahas rancangan dasar negara dengan 3 tokoh pengusul utama: <strong>Mr. Muhammad Yamin</strong> (29 Mei 1945), <strong>Mr. Soepomo</strong> (31 Mei 1945), dan <strong>Ir. Soekarno</strong> (1 Juni 1945).",
+                            "Pada <strong>1 Juni 1945</strong>, Ir. Soekarno mengusulkan nama <strong>Pancasila</strong> atas saran ahli bahasa (Muhammad Yamin), sehingga diperingati sebagai <strong>Hari Lahir Pancasila</strong>."
+                        ]
+                    },
+                    {
+                        heading: "2. Panitia Sembilan & Piagam Jakarta (22 Juni 1945)",
+                        points: [
+                            "Dibentuk <strong>Panitia Sembilan</strong> untuk menjembatani golongan kebangsaan dan golongan Islam.",
+                            "Pada <strong>22 Juni 1945</strong>, Panitia Sembilan menghasilkan rumusan dasar negara dalam <strong>Piagam Jakarta</strong> (<em>Jakarta Charter</em>).",
+                            "Sila pertama Piagam Jakarta berbunyi: <em>\"Ketuhanan dengan kewajiban menjalankan syariat Islam bagi pemeluk-pemeluknya\"</em>."
+                        ]
+                    },
+                    {
+                        heading: "3. Pengesahan Pancasila oleh PPKI (18 Agustus 1945)",
+                        points: [
+                            "<strong>PPKI</strong> (<em>Dokuritsu Junbi Inkai</em>) dibentuk <strong>7 Agustus 1945</strong> dan diketuai oleh <strong>Ir. Soekarno</strong>.",
+                            "Pada sidang <strong>18 Agustus 1945</strong>, atas usulan Drs. Moh. Hatta demi menjaga persatuan bangsa dari aspirasi wakil Indonesia Timur, 7 kata pada sila pertama Piagam Jakarta diubah menjadi <strong>\"Ketuhanan Yang Maha Esa\"</strong>.",
+                            "Rumusan sah dan final Pancasila tercantum dalam <strong>Pembukaan UUD NRI Tahun 1945 alinea keempat</strong>."
+                        ]
+                    },
+                    {
+                        heading: "4. Nilai Keteladanan Para Pendiri Bangsa",
+                        points: [
+                            "<strong>Mengutamakan persatuan dan kesatuan bangsa</strong> di atas kepentingan pribadi maupun golongan.",
+                            "<strong>Berjiwa besar dan rela berkorban</strong> (terlihat dari legowonya tokoh Islam menyetujui perubahan sila pertama).",
+                            "<strong>Musyawarah mufakat</strong>, saling menghargai perbedaan pendapat, serta semangat cinta tanah air (nasionalisme)."
+                        ]
+                    }
+                ]
+            },
+            2: {
+                title: "Bab II: Penerapan Nilai-Nilai Pancasila",
+                subtitle: "Kedudukan Pancasila, makna kelima sila, tradisi gotong royong, dan karakter pelajar",
+                badgeColor: "amber",
+                sections: [
+                    {
+                        heading: "1. Kedudukan dan Fungsi Pancasila",
+                        points: [
+                            "<strong>Pancasila sebagai Dasar Negara</strong>: Fondasi penyelenggaraan negara dan <em>sumber dari segala sumber hukum</em> di Indonesia (tertuang dalam Pembukaan UUD 1945).",
+                            "<strong>Pancasila sebagai Pandangan Hidup Bangsa</strong> (<em>Way of Life</em>): Pedoman sikap, perilaku, dan petunjuk arah warga negara dalam kehidupan sehari-hari.",
+                            "<strong>Pancasila sebagai Ideologi Negara</strong>: Cita-cita dan tujuan bersama yang mempersatukan seluruh rakyat Indonesia."
+                        ]
+                    },
+                    {
+                        heading: "2. Makna & Penerapan Sila 1 sampai Sila 5",
+                        points: [
+                            "<strong>Sila 1 (Ketuhanan YME)</strong>: Beriman, rajin beribadah, toleransi antarumat beragama, tidak memaksakan agama kepada orang lain.",
+                            "<strong>Sila 2 (Kemanusiaan yang Adil dan Beradab)</strong>: Menghormati martabat manusia, anti-perundungan (bullying), menjenguk teman sakit, bersikap adil.",
+                            "<strong>Sila 3 (Persatuan Indonesia)</strong>: Cinta tanah air, bangga produk dalam negeri, berteman tanpa membedakan suku/ras, mengikuti upacara bendera dengan khidmat.",
+                            "<strong>Sila 4 (Kerakyatan...)</strong>: Mengutamakan musyawarah mufakat (misal pemilihan ketua kelas), menghargai pendapat orang lain, melaksanakan hasil keputusan bersama.",
+                            "<strong>Sila 5 (Keadilan Sosial...)</strong>: Bersikap adil, hemat, tidak boros, suka menolong sesama, melaksanakan piket kelas sesuai jadwal."
+                        ]
+                    },
+                    {
+                        heading: "3. Semangat Gotong Royong di Berbagai Daerah Nusantara",
+                        points: [
+                            "<strong>Subak</strong> (Bali): Sistem pengairan sawah tradisional berbasis kebersamaan dan keadilan.",
+                            "<strong>Mapalus</strong> (Minahasa, Sulawesi Utara): Tradisi kerja sama tolong-menolong dalam pertanian dan kemasyarakatan.",
+                            "<strong>Sinoman</strong> (Jawa): Tradisi gotong royong pemuda membantu hajatan warga.",
+                            "<strong>Marsiadapari</strong> (Batak, Sumatera Utara): Saling membantu menggarap ladang secara bergiliran.",
+                            "<strong>Ngayah</strong> (Bali) & <strong>Ammosi</strong> (Sulawesi Selatan): Gotong royong tulus ikhlas untuk kepentingan bersama."
+                        ]
+                    }
+                ]
+            },
+            3: {
+                title: "Bab III: Patuh Terhadap Norma",
+                subtitle: "Hakikat manusia, fungsi norma, 4 jenis norma beserta sumber & sanksinya",
+                badgeColor: "sky",
+                sections: [
+                    {
+                        heading: "1. Hakikat Manusia & Pentingnya Norma",
+                        points: [
+                            "Manusia memiliki 3 kodrat: sebagai <strong>Makhluk Tuhan YME</strong>, <strong>Makhluk Individu</strong> (unik/berkepentingan pribadi), dan <strong>Makhluk Sosial</strong> (<em>Zoon Politikon</em> — tidak bisa hidup sendiri).",
+                            "Interaksi antarmanusia rawan benturan kepentingan, sehingga diperlukan <strong>norma</strong> (aturan/kaidah) agar tidak terjadi kekacauan atau hukum rimba (<em>homo homini lupus</em>).",
+                            "<strong>Fungsi Utama Norma</strong>: Pedoman bertingkah laku, menjaga ketertiban & kerukunan masyarakat, melindungi hak warga, serta mewujudkan keadilan."
+                        ]
+                    },
+                    {
+                        heading: "2. Empat Macam Norma (Sumber & Sanksinya)",
+                        points: [
+                            "<strong>Norma Agama</strong>: Bersumber dari wahyu Tuhan YME / kitab suci. Sanksinya bersifat tidak langsung/akhirat berupa <strong>dosa</strong> (misal: jujur, beribadah, tidak mencuri).",
+                            "<strong>Norma Kesusilaan</strong>: Bersumber dari <strong>hati nurani</strong> manusia (bisikan kalbu). Sanksinya berupa rasa <strong>menyesal, bersalah, atau gelisah</strong> (misal: menolong korban kecelakaan, tidak menyontek).",
+                            "<strong>Norma Kesopanan</strong>: Bersumber dari <strong>pergaulan/kebiasaan masyarakat</strong> setempat. Sanksinya berupa <strong>teguran, cemoohan, atau dikucilkan</strong> (misal: mencium tangan orang tua, berkata santun).",
+                            "<strong>Norma Hukum</strong>: Dibuat oleh <strong>lembaga negara yang berwenang</strong> (tertulis, tegas, memaksa). Sanksinya nyata & tegas berupa <strong>denda, kurungan, atau penjara</strong> (misal: memakai helm, memiliki SIM, membayar pajak)."
+                        ]
+                    },
+                    {
+                        heading: "3. Kepatuhan Pelajar Terhadap Norma di Sekolah & Masyarakat",
+                        points: [
+                            "Kesadaran hukum tumbuh dari pemahaman bahwa aturan dibuat demi keselamatan bersama, bukan sekadar takut pada guru atau polisi.",
+                            "Pelanggaran lalu lintas oleh remaja (naik motor tanpa SIM, tanpa helm, menerobos lampu merah) melanggar <strong>Norma Hukum</strong> sekaligus membahayakan nyawa orang lain (<strong>Norma Kesusilaan</strong>)."
+                        ]
+                    }
+                ]
+            }
+        };
+
+        /* =====================================================================
+           2. DATA KISI-KISI SOAL (NO. 1 - 50)
+           ===================================================================== */
+        const kisiKisiData = [
+            { no: 1, bab: 1, materi: "Latar Sejarah Pancasila", indikator: "Menjelaskan bukti nilai Pancasila sudah ada sejak zaman kerajaan Nusantara (Majapahit/Sriwijaya)", level: "L1", bentuk: "PG" },
+            { no: 2, bab: 1, materi: "Pembentukan BPUPKI", indikator: "Mengidentifikasi tujuan Jepang membentuk BPUPKI (Dokuritsu Junbi Cosakai)", level: "L1", bentuk: "PG" },
+            { no: 3, bab: 1, materi: "Struktur BPUPKI", indikator: "Menyebutkan tokoh ketua BPUPKI (Dr. K.R.T. Radjiman Wedyodiningrat)", level: "L1", bentuk: "PG" },
+            { no: 4, bab: 1, materi: "Sidang Pertama BPUPKI", indikator: "Mengidentifikasi 3 tokoh perumus dasar negara pada sidang pertama BPUPKI", level: "L1", bentuk: "PG" },
+            { no: 5, bab: 1, materi: "Pidato 1 Juni 1945", indikator: "Menjelaskan makna peristiwa 1 Juni 1945 sebagai Hari Lahir Pancasila", level: "L1", bentuk: "PG" },
+            { no: 6, bab: 1, materi: "Usulan Dasar Negara", indikator: "Mengidentifikasi rumusan dasar negara yang disampaikan Ir. Soekarno (Prinsip Internasionalisme/Perikemanusiaan)", level: "L2", bentuk: "PG" },
+            { no: 7, bab: 1, materi: "Panitia Sembilan", indikator: "Menjelaskan tugas utama Panitia Sembilan dalam menjembatani perbedaan pendapat", level: "L1", bentuk: "PG" },
+            { no: 8, bab: 1, materi: "Piagam Jakarta", indikator: "Mengidentifikasi tanggal dan hasil sidang Panitia Sembilan (22 Juni 1945)", level: "L1", bentuk: "PG" },
+            { no: 9, bab: 1, materi: "Perubahan Sila Pertama", indikator: "Menganalisis alasan perubahan 7 kata sila pertama Piagam Jakarta pada 18 Agustus 1945", level: "L3", bentuk: "PG" },
+            { no: 10, bab: 1, materi: "Pengesahan Pancasila", indikator: "Menentukan lembaga yang mengesahkan Pancasila sebagai dasar negara (PPKI)", level: "L1", bentuk: "PG" },
+            { no: 11, bab: 1, materi: "Rumusan Sah Pancasila", indikator: "Menunjukkan letak rumusan sah Pancasila dalam Pembukaan UUD NRI Tahun 1945", level: "L1", bentuk: "PG" },
+            { no: 12, bab: 1, materi: "Keteladanan Tokoh", indikator: "Menerapkan sikap jiwa besar dan toleransi pendiri bangsa di lingkungan sekolah", level: "L2", bentuk: "PG" },
+            { no: 13, bab: 1, materi: "Semangat Kebangsaan", indikator: "Mengidentifikasi nilai nasionalisme dan patriotisme dalam proses perumusan Pancasila", level: "L2", bentuk: "PG" },
+            { no: 14, bab: 1, materi: "Musyawarah Pendiri Bangsa", indikator: "Menganalisis pentingnya musyawarah mufakat dalam menyelesaikan perbedaan pandangan", level: "L3", bentuk: "PG" },
+            { no: 15, bab: 2, materi: "Pancasila Dasar Negara", indikator: "Menjelaskan arti kedudukan Pancasila sebagai dasar negara Indonesia", level: "L1", bentuk: "PG" },
+            { no: 16, bab: 2, materi: "Pandangan Hidup Bangsa", indikator: "Memberikan contoh penerapan Pancasila sebagai pandangan hidup (way of life)", level: "L2", bentuk: "PG" },
+            { no: 17, bab: 2, materi: "Sumber Segala Hukum", indikator: "Menjelaskan konsekuensi Pancasila sebagai sumber dari segala sumber hukum negara", level: "L2", bentuk: "PG" },
+            { no: 18, bab: 2, materi: "Penerapan Sila ke-1", indikator: "Menentukan perilaku yang mencerminkan nilai Ketuhanan Yang Maha Esa di sekolah", level: "L2", bentuk: "PG" },
+            { no: 19, bab: 2, materi: "Penerapan Sila ke-2", indikator: "Menganalisis sikap kemanusiaan yang adil dan beradab terhadap korban bencana/teman", level: "L2", bentuk: "PG" },
+            { no: 20, bab: 2, materi: "Penerapan Sila ke-3", indikator: "Menentukan wujud cinta tanah air dan persatuan di tengah keberagaman budaya", level: "L2", bentuk: "PG" },
+            { no: 21, bab: 2, materi: "Penerapan Sila ke-4", indikator: "Menerapkan prinsip musyawarah mufakat dalam pengambilan keputusan kelas", level: "L2", bentuk: "PG" },
+            { no: 22, bab: 2, materi: "Penerapan Sila ke-5", indikator: "Mengidentifikasi perilaku adil, hemat, dan menghargai karya orang lain sesuai Sila ke-5", level: "L2", bentuk: "PG" },
+            { no: 23, bab: 2, materi: "Gotong Royong Nusantara", indikator: "Mengidentifikasi istilah tradisi gotong royong di Bali (Subak / Ngayah)", level: "L1", bentuk: "PG" },
+            { no: 24, bab: 2, materi: "Gotong Royong Daerah", indikator: "Menyebutkan tradisi gotong royong masyarakat Minahasa Sulawesi Utara (Mapalus)", level: "L1", bentuk: "PG" },
+            { no: 25, bab: 2, materi: "Manfaat Gotong Royong", indikator: "Menganalisis dampak positif budaya gotong royong dalam kehidupan bermasyarakat", level: "L3", bentuk: "PG" },
+            { no: 26, bab: 2, materi: "Tantangan Era Digital", indikator: "Menganalisis sikap pelajar menghadapi hoaks dan ujaran kebencian berdasar Pancasila", level: "L3", bentuk: "PG" },
+            { no: 27, bab: 2, materi: "Profil Pelajar Pancasila", indikator: "Mengidentifikasi dimensi berkebinekaan global dan bernalar kritis dalam keseharian", level: "L2", bentuk: "PG" },
+            { no: 28, bab: 3, materi: "Kodrat Manusia", indikator: "Menjelaskan pengertian manusia sebagai makhluk sosial (Zoon Politikon)", level: "L1", bentuk: "PG" },
+            { no: 29, bab: 3, materi: "Hakikat Norma", indikator: "Menjelaskan pengertian norma sebagai kaidah/aturan tingkah laku dalam masyarakat", level: "L1", bentuk: "PG" },
+            { no: 30, bab: 3, materi: "Tujuan Norma", indikator: "Menganalisis kondisi masyarakat apabila tidak memiliki norma yang ditaati", level: "L3", bentuk: "PG" },
+            { no: 31, bab: 3, materi: "Norma Agama", indikator: "Mengidentifikasi sumber dan contoh pelaksanaan Norma Agama dalam kehidupan", level: "L1", bentuk: "PG" },
+            { no: 32, bab: 3, materi: "Norma Kesusilaan", indikator: "Menentukan sumber dan sanksi dari pelanggaran Norma Kesusilaan (hati nurani)", level: "L2", bentuk: "PG" },
+            { no: 33, bab: 3, materi: "Norma Kesopanan", indikator: "Mengidentifikasi contoh penerapan Norma Kesopanan dalam pergaulan sehari-hari", level: "L2", bentuk: "PG" },
+            { no: 34, bab: 3, materi: "Norma Hukum", indikator: "Menjelaskan sifat memaksa dan sanksi tegas pada Norma Hukum", level: "L1", bentuk: "PG" },
+            { no: 35, bab: 3, materi: "Perbedaan 4 Norma", indikator: "Membandingkan sanksi nyata langsung pada norma hukum dengan norma lainnya", level: "L2", bentuk: "PG" },
+            { no: 36, bab: 3, materi: "Keadilan & Keteraturan", indikator: "Menjelaskan arti penting keadilan sebagai tujuan utama penegakan norma hukum", level: "L2", bentuk: "PG" },
+            { no: 37, bab: 3, materi: "Tata Tertib Sekolah", indikator: "Menerapkan kepatuhan terhadap tata tertib sekolah sebagai bagian dari norma", level: "L2", bentuk: "PG" },
+            { no: 38, bab: 3, materi: "Ketaatan Lalu Lintas", indikator: "Menganalisis kewajiban mematuhi rambu lalu lintas demi keselamatan bersama", level: "L2", bentuk: "PG" },
+            { no: 39, bab: 3, materi: "Studi Kasus Pelanggaran", indikator: "Menganalisis jenis norma yang dilanggar dalam kasus interaksi sosial remaja", level: "L3", bentuk: "PG" },
+            { no: 40, bab: 3, materi: "Kesadaran Hukum Pelajar", indikator: "Menyimpulkan sikap terbaik menumbuhkan budaya patuh norma sejak dini", level: "L3", bentuk: "PG" },
+            { no: 41, bab: 1, materi: "Sidang Pertama BPUPKI", indikator: "Menyebutkan 3 tokoh pengusul dasar negara beserta tanggal penyampaiannya", level: "L1", bentuk: "Uraian" },
+            { no: 42, bab: 1, materi: "Piagam Jakarta & PPKI", indikator: "Menjelaskan alasan perubahan 7 kata sila pertama Piagam Jakarta pada 18 Agustus 1945", level: "L3", bentuk: "Uraian" },
+            { no: 43, bab: 1, materi: "Keteladanan Pendiri Bangsa", indikator: "Menyebutkan dan menjelaskan 4 nilai keteladanan para pendiri bangsa", level: "L2", bentuk: "Uraian" },
+            { no: 44, bab: 2, materi: "Kedudukan Pancasila", indikator: "Membedakan fungsi Pancasila sebagai Dasar Negara dan Pandangan Hidup Bangsa", level: "L2", bentuk: "Uraian" },
+            { no: 45, bab: 2, materi: "Penerapan Sila 3 & 4", indikator: "Memberikan masing-masing 2 contoh penerapan Sila ke-3 dan Sila ke-4 di sekolah", level: "L2", bentuk: "Uraian" },
+            { no: 46, bab: 3, materi: "Kodrat Manusia & Norma", indikator: "Menjelaskan 3 kodrat hakikat manusia dan hubungannya dengan kebutuhan akan norma", level: "L2", bentuk: "Uraian" },
+            { no: 47, bab: 3, materi: "Fungsi Norma", indikator: "Menyebutkan 4 fungsi utama norma dalam kehidupan bermasyarakat", level: "L1", bentuk: "Uraian" },
+            { no: 48, bab: 3, materi: "4 Macam Norma", indikator: "Membedakan sumber aturan dan sanksi dari 4 macam norma (Agama, Kesusilaan, Kesopanan, Hukum)", level: "L2", bentuk: "Uraian" },
+            { no: 49, bab: 3, materi: "Analisis Kasus Remaja", indikator: "Menganalisis pelanggaran norma pada kasus Reno (13 tahun) mengendarai motor tanpa helm & membentak warga", level: "L3", bentuk: "Uraian" },
+            { no: 50, bab: 3, materi: "Komitmen Pelajar", indikator: "Merumuskan 4 komitmen aksi nyata pelajar SMP AL-AKHYAR patuh terhadap norma di sekolah", level: "L3", bentuk: "Uraian" }
+        ];
+
+        /* =====================================================================
+           3. DATA FLASHCARDS HAFALAN CEPAT (24 KARTU)
+           ===================================================================== */
+        const flashcardsData = [
+            { id: 1, cat: "Sejarah & BPUPKI", front: "Kapan BPUPKI dibentuk Jepang dan siapa ketuanya?", back: "Diumumkan 1 Maret 1945 (resmi 29 April 1945), diketuai Dr. K.R.T. Radjiman Wedyodiningrat.", note: "Nama Jepang BPUPKI: Dokuritsu Junbi Cosakai." },
+            { id: 2, cat: "Sejarah & BPUPKI", front: "Kapan Sidang Pertama BPUPKI berlangsung dan apa agendanya?", back: "29 Mei – 1 Juni 1945, membahas rancangan Dasar Negara Indonesia Merdeka.", note: "Bertempat di Gedung Chuo Sangi In (Gedung Pancasila)." },
+            { id: 3, cat: "Tokoh & Piagam Jakarta", front: "Sebutkan 3 tokoh pengusul rumusan dasar negara pada sidang pertama BPUPKI!", back: "1. Mr. Muhammad Yamin (29 Mei 1945)\n2. Mr. Soepomo (31 Mei 1945)\n3. Ir. Soekarno (1 Juni 1945)", note: "Urutan tanggal: 29 Mei, 31 Mei, dan 1 Juni 1945." },
+            { id: 4, cat: "Sejarah & BPUPKI", front: "Mengapa tanggal 1 Juni diperingati sebagai Hari Lahir Pancasila?", back: "Karena pada 1 Juni 1945 Ir. Soekarno menyampaikan pidato tentang 5 prinsip dasar negara yang dinamai Pancasila.", note: "Nama Pancasila disarankan oleh seorang ahli bahasa (Muhammad Yamin)." },
+            { id: 5, cat: "Tokoh & Piagam Jakarta", front: "Apa hasil sidang Panitia Sembilan pada tanggal 22 Juni 1945?", back: "Piagam Jakarta (Jakarta Charter) yang memuat rumusan awal dasar negara.", note: "Diketuai Ir. Soekarno dengan wakil Drs. Mohammad Hatta." },
+            { id: 6, cat: "Tokoh & Piagam Jakarta", front: "Apa bunyi sila pertama dalam Piagam Jakarta sebelum diubah?", back: "\"Ketuhanan dengan kewajiban menjalankan syariat Islam bagi pemeluk-pemeluknya.\"", note: "Tujuh kata setelah 'Ketuhanan' kemudian diubah demi persatuan bangsa." },
+            { id: 7, cat: "Tokoh & Piagam Jakarta", front: "Mengapa 7 kata sila pertama Piagam Jakarta diubah pada 18 Agustus 1945?", back: "Atas usulan wakil Indonesia Timur (non-Islam) melalui Drs. Moh. Hatta demi menjaga persatuan dan keutuhan bangsa.", note: "Diubah menjadi: 'Ketuhanan Yang Maha Esa'." },
+            { id: 8, cat: "Sejarah & BPUPKI", front: "Kapan Pancasila disahkan secara resmi sebagai dasar negara dan oleh lembaga apa?", back: "Disahkan pada tanggal 18 Agustus 1945 oleh PPKI (Panitia Persiapan Kemerdekaan Indonesia).", note: "Tercantum dalam Pembukaan UUD NRI Tahun 1945 alinea keempat." },
+            { id: 9, cat: "Sejarah & BPUPKI", front: "Siapa Ketua dan Wakil Ketua PPKI?", back: "Ketua: Ir. Soekarno | Wakil Ketua: Drs. Mohammad Hatta.", note: "PPKI dibentuk pada 7 Agustus 1945 (Dokuritsu Junbi Inkai)." },
+            { id: 10, cat: "Tokoh & Piagam Jakarta", front: "Apa nilai keteladanan utama tokoh Islam saat menyetujui perubahan sila pertama?", back: "Berjiwa besar, rela berkorban, toleransi tinggi, dan mengutamakan persatuan bangsa di atas kepentingan golongan.", note: "Tokoh seperti Ki Bagus Hadikusumo, KH Wahid Hasyim, Mr. Kasman Singodimedjo." },
+            { id: 11, cat: "Kedudukan & Gotong Royong", front: "Apa perbedaan Pancasila sebagai Dasar Negara vs Pandangan Hidup Bangsa?", back: "Dasar Negara: fondasi penyelenggaraan negara & sumber hukum.\nPandangan Hidup: pedoman sikap & perilaku warga negara sehari-hari.", note: "Keduanya merupakan satu kesatuan yang tidak terpisahkan." },
+            { id: 12, cat: "Kedudukan & Gotong Royong", front: "Apa makna istilah 'Sumber dari Segala Sumber Hukum' bagi Pancasila?", back: "Semua peraturan perundang-undangan di Indonesia (UUD, UU, Perda) tidak boleh bertentangan dengan nilai Pancasila.", note: "Ditegaskan dalam UU No. 12 Tahun 2011." },
+            { id: 13, cat: "Kedudukan & Gotong Royong", front: "Apa nama tradisi gotong royong pengairan sawah di Bali?", back: "Subak (serta istilah 'Ngayah' untuk gotong royong sukarela di Bali).", note: "Subak telah diakui sebagai Warisan Budaya Dunia UNESCO." },
+            { id: 14, cat: "Kedudukan & Gotong Royong", front: "Apa nama tradisi gotong royong masyarakat Minahasa (Sulawesi Utara)?", back: "Mapalus (tradisi kerja sama dan tolong-menolong warga).", note: "Di Sumatera Utara (Batak) disebut Marsiadapari; di Jawa disebut Sinoman/Sambatan." },
+            { id: 15, cat: "Kedudukan & Gotong Royong", front: "Nilai Pancasila sila ke berapa yang tercermin saat musyawarah pemilihan ketua kelas?", back: "Sila ke-4: Kerakyatan yang Dipimpin oleh Hikmat Kebijaksanaan dalam Permusyawaratan/Perwakilan.", note: "Mengutamakan mufakat dan menghargai perbedaan pendapat." },
+            { id: 16, cat: "Norma & Sanksi", front: "Sebutkan 3 kodrat hakikat manusia dalam kehidupan!", back: "1. Makhluk Tuhan Yang Maha Esa\n2. Makhluk Individu\n3. Makhluk Sosial (Zoon Politikon)", note: "Istilah Zoon Politikon dikemukakan oleh filsuf Aristoteles." },
+            { id: 17, cat: "Norma & Sanksi", front: "Mengapa manusia sangat membutuhkan norma dalam masyarakat?", back: "Untuk mencegah benturan kepentingan antarindividu dan menghindari kekacauan (hukum rimba).", note: "Norma menciptakan ketertiban, keamanan, dan keadilan." },
+            { id: 18, cat: "Norma & Sanksi", front: "Sebutkan 4 macam norma yang berlaku di masyarakat!", back: "1. Norma Agama\n2. Norma Kesusilaan\n3. Norma Kesopanan\n4. Norma Hukum", note: "Keempat norma saling melengkapi demi keteraturan hidup." },
+            { id: 19, cat: "Norma & Sanksi", front: "Apa sumber dan sanksi dari Norma Agama?", back: "Sumber: Wahyu Tuhan YME / Kitab Suci.\nSanksi: Dosa dan balasan di akhirat (tidak langsung).", note: "Contoh: rajin beribadah, bersedekah, tidak berbohong." },
+            { id: 20, cat: "Norma & Sanksi", front: "Apa sumber dan sanksi dari Norma Kesusilaan?", back: "Sumber: Hati nurani (bisikan kalbu manusia).\nSanksi: Rasa menyesal, bersalah, malu, dan gelisah.", note: "Contoh: jujur saat ujian, menolong orang yang kesusahan." },
+            { id: 21, cat: "Norma & Sanksi", front: "Apa sumber dan sanksi dari Norma Kesopanan?", back: "Sumber: Pergaulan / kebiasaan masyarakat setempat.\nSanksi: Teguran, cemoohan, gunjingan, atau dikucilkan.", note: "Contoh: menyapa guru, berbicara santun kepada orang tua." },
+            { id: 22, cat: "Norma & Sanksi", front: "Apa sumber dan sanksi dari Norma Hukum?", back: "Sumber: Lembaga negara yang berwenang (peraturan tertulis).\nSanksi: Tegas, nyata, dan memaksa (denda, kurungan, penjara).", note: "Satu-satunya norma dengan aparat penegak hukum resmi." },
+            { id: 23, cat: "Norma & Sanksi", front: "Apa ciri khas utama yang membedakan Norma Hukum dengan 3 norma lainnya?", back: "Sifatnya memaksa dan sanksinya tegas serta nyata dijatuhkan oleh aparat berwenang.", note: "Contoh: Tilang saat melanggar rambu lalu lintas." },
+            { id: 24, cat: "Norma & Sanksi", front: "Apa yang dimaksud dengan 'Kesadaran Hukum' bagi seorang pelajar?", back: "Kepatuhan terhadap aturan yang lahir dari kesadaran hati demi kebaikan bersama, bukan karena takut dihukum.", note: "Contoh: Datang tepat waktu dan memakai seragam rapi tanpa diawasi." }
+        ];
+
+        /* =====================================================================
+           4. DATA 40 SOAL PILIHAN GANDA + KUNCI JAWABAN SESUAI DOKUMEN + PEMBAHASAN
+           Kunci Wajib:
+           1:A, 2:C, 3:B, 4:D, 5:C, 6:C, 7:A, 8:B, 9:B, 10:B,
+           11:B, 12:A, 13:B, 14:C, 15:B, 16:A, 17:A, 18:B, 19:B, 20:D,
+           21:B, 22:A, 23:B, 24:C, 25:B, 26:B, 27:B, 28:B, 29:A, 30:C,
+           31:C, 32:C, 33:B, 34:C, 35:A, 36:B, 37:B, 38:B, 39:C, 40:B.
+           ===================================================================== */
+        const quizQuestionsData = [
+            // BAB I: SEJARAH KELAHIRAN PANCASILA (1 - 14)
+            {
+                no: 1, bab: 1, babTitle: "Bab I: Sejarah Kelahiran Pancasila", level: "L1",
+                question: "Nilai-nilai luhur Pancasila sejatinya bukanlah hal baru, melainkan sudah berakar dalam budaya bangsa Indonesia sejak zaman kerajaan Nusantara seperti Sriwijaya dan Majapahit. Istilah 'Pancasila' sendiri ditemukan dalam kitab Sutasoma karangan...",
+                options: { A: "Mpu Tantular", B: "Mpu Prapanca", C: "Mpu Sedah", D: "Mpu Gandring" },
+                answer: "A",
+                explanation: "Istilah 'Pancasila' (serta semboyan Bhinneka Tunggal Ika) terdapat dalam Kitab Sutasoma karangan Mpu Tantular pada masa Kerajaan Majapahit, sedangkan Kitab Negarakertagama ditulis oleh Mpu Prapanca."
+            },
+            {
+                no: 2, bab: 1, babTitle: "Bab I: Sejarah Kelahiran Pancasila", level: "L1",
+                question: "Pada tanggal 1 Maret 1945, pemerintah militer Jepang mengumumkan pembentukan Badan Penyelidik Usaha-Usaha Persiapan Kemerdekaan Indonesia (BPUPKI). Tujuan utama Jepang membentuk BPUPKI adalah...",
+                options: { A: "Langsung menyerahkan kekuasaan kepada bangsa Indonesia", B: "Melatih pemuda Indonesia menjadi tentara sekutu", C: "Menarik simpati rakyat Indonesia agar membantu Jepang dalam Perang Asia Timur Raya", D: "Menghapuskan seluruh pengaruh budaya Barat di Nusantara" },
+                answer: "C",
+                explanation: "Kedudukan Jepang dalam Perang Dunia II semakin terdesak oleh Sekutu, sehingga Jepang membentuk BPUPKI untuk menarik simpati dan dukungan rakyat Indonesia."
+            },
+            {
+                no: 3, bab: 1, babTitle: "Bab I: Sejarah Kelahiran Pancasila", level: "L1",
+                question: "Sidang BPUPKI dipimpin oleh seorang ketua yang berperan penting mengarahkan jalannya pembahasan dasar negara dengan pertanyaan 'Apa dasar negara Indonesia yang akan kita bentuk?'. Tokoh ketua BPUPKI tersebut adalah...",
+                options: { A: "Ir. Soekarno", B: "Dr. K.R.T. Radjiman Wedyodiningrat", C: "Drs. Mohammad Hatta", D: "Mr. Muhammad Yamin" },
+                answer: "B",
+                explanation: "BPUPKI diketuai oleh Dr. K.R.T. Radjiman Wedyodiningrat dengan dua wakil ketua, yaitu Ichibangase Yosio (Jepang) dan R.P. Soeroso (Indonesia)."
+            },
+            {
+                no: 4, bab: 1, babTitle: "Bab I: Sejarah Kelahiran Pancasila", level: "L1",
+                question: "Sidang pertama BPUPKI berlangsung pada tanggal 29 Mei sampai 1 Juni 1945 dengan agenda merumuskan dasar negara. Tiga tokoh utama yang menyampaikan gagasan dasar negara secara berurutan pada sidang tersebut adalah...",
+                options: { A: "Ir. Soekarno, Drs. Moh. Hatta, dan Mr. Soepomo", B: "Mr. Ahmad Soebardjo, Mr. Moh. Yamin, dan Ir. Soekarno", C: "Dr. Radjiman, Mr. Soepomo, dan Ki Bagus Hadikusumo", D: "Mr. Muhammad Yamin, Mr. Soepomo, dan Ir. Soekarno" },
+                answer: "D",
+                explanation: "Urutan penyampaian rumusan dasar negara: Mr. Muhammad Yamin (29 Mei 1945), Mr. Soepomo (31 Mei 1945), dan Ir. Soekarno (1 Juni 1945)."
+            },
+            {
+                no: 5, bab: 1, babTitle: "Bab I: Sejarah Kelahiran Pancasila", level: "L1",
+                question: "Setiap tanggal 1 Juni bangsa Indonesia memperingati Hari Lahir Pancasila. Peristiwa bersejarah yang melatarbelakangi penetapan tanggal tersebut adalah...",
+                options: { A: "Pembentukan Panitia Sembilan oleh BPUPKI", B: "Pengesahan UUD NRI Tahun 1945 oleh PPKI", C: "Pidato Ir. Soekarno yang mengusulkan nama 'Pancasila' sebagai dasar negara", D: "Penandatanganan naskah Piagam Jakarta" },
+                answer: "C",
+                explanation: "Pada 1 Juni 1945 dalam sidang pertama BPUPKI, Ir. Soekarno menyampaikan pidato lahirnya lima prinsip dasar negara yang beliau beri nama Pancasila."
+            },
+            {
+                no: 6, bab: 1, babTitle: "Bab I: Sejarah Kelahiran Pancasila", level: "L2",
+                question: "Dalam pidatonya pada 1 Juni 1945, Ir. Soekarno mengemukakan lima prinsip dasar negara, salah satunya adalah 'Internasionalisme atau Perikemanusiaan'. Makna prinsip tersebut bagi bangsa Indonesia adalah...",
+                options: { A: "Menutup diri dari pergaulan bangsa-bangsa asing", B: "Menganggap bangsa Indonesia lebih tinggi dari bangsa lain", C: "Menjunjung tinggi nilai kemanusiaan dan persaudaraan antarbangsa di dunia", D: "Menyerahkan kedaulatan negara kepada organisasi internasional" },
+                answer: "C",
+                explanation: "Internasionalisme atau perikemanusiaan berarti kebangsaan Indonesia tidak boleh menjadi chauvinisme (merasa paling unggul), melainkan mencintai sesama manusia dan perdamaian dunia."
+            },
+            {
+                no: 7, bab: 1, babTitle: "Bab I: Sejarah Kelahiran Pancasila", level: "L1",
+                question: "Setelah sidang pertama BPUPKI berakhir, dibentuklah Panitia Sembilan yang diketuai oleh Ir. Soekarno. Tugas utama Panitia Sembilan adalah...",
+                options: { A: "Menampung usulan dan menyusun rancangan mukadimah (pembukaan) hukum dasar", B: "Memilih presiden dan wakil presiden pertama Indonesia", C: "Membentuk tentara keamanan rakyat di seluruh daerah", D: "Menyusun jadwal proklamasi kemerdekaan Indonesia" },
+                answer: "A",
+                explanation: "Panitia Sembilan dibentuk untuk menjembatani perbedaan pandangan antara golongan kebangsaan dan golongan Islam serta menyusun rancangan mukadimah dasar negara."
+            },
+            {
+                no: 8, bab: 1, babTitle: "Bab I: Sejarah Kelahiran Pancasila", level: "L1",
+                question: "Panitia Sembilan berhasil mencapai kesepakatan luhur berupa rumusan dasar negara yang dikenal dengan sebutan Piagam Jakarta (Jakarta Charter). Naskah Piagam Jakarta disepakati pada tanggal...",
+                options: { A: "1 Juni 1945", B: "22 Juni 1945", C: "17 Agustus 1945", D: "18 Agustus 1945" },
+                answer: "B",
+                explanation: "Panitia Sembilan menandatangani kesepakatan Piagam Jakarta pada tanggal 22 Juni 1945 di kediaman Ir. Soekarno, Jalan Pegangsaan Timur No. 56 Jakarta."
+            },
+            {
+                no: 9, bab: 1, babTitle: "Bab I: Sejarah Kelahiran Pancasila", level: "L3",
+                question: "Sebelum pengesahan UUD 1945 pada 18 Agustus 1945, terjadi kesepakatan mengubah rumusan sila pertama Piagam Jakarta dari 'Ketuhanan dengan kewajiban menjalankan syariat Islam bagi pemeluk-pemeluknya' menjadi 'Ketuhanan Yang Maha Esa'. Alasan utama perubahan tersebut adalah...",
+                options: { A: "Desakan dari pemerintah militer Jepang sebelum menyerah", B: "Demi menjaga persatuan dan keutuhan bangsa Indonesia yang majemuk", C: "Karena kalimat aslinya terlalu panjang untuk dibaca saat upacara", D: "Untuk menyesuaikan dengan konstitusi negara-negara Eropa" },
+                answer: "B",
+                explanation: "Wakil dari Indonesia bagian timur (non-Islam) menyampaikan keberatan melalui Drs. Moh. Hatta. Demi keutuhan NKRI yang baru merdeka, para tokoh Islam berjiwa besar menyetujui perubahan tersebut."
+            },
+            {
+                no: 10, bab: 1, babTitle: "Bab I: Sejarah Kelahiran Pancasila", level: "L1",
+                question: "Pancasila sebagai dasar negara Republik Indonesia secara resmi dan sah ditetapkan sehari setelah Proklamasi Kemerdekaan, tepatnya pada 18 Agustus 1945 oleh...",
+                options: { A: "BPUPKI", B: "PPKI", C: "KNIP", D: "Panitia Delapan" },
+                answer: "B",
+                explanation: "PPKI (Panitia Persiapan Kemerdekaan Indonesia) mengesahkan UUD NRI Tahun 1945 yang di dalam Pembukaannya memuat rumusan resmi Pancasila."
+            },
+            {
+                no: 11, bab: 1, babTitle: "Bab I: Sejarah Kelahiran Pancasila", level: "L1",
+                question: "Rumusan Pancasila yang sah, final, dan mengikat secara hukum bagi seluruh bangsa Indonesia tercantum di dalam...",
+                options: { A: "Batang Tubuh UUD NRI Tahun 1945 Pasal 1", B: "Pembukaan UUD NRI Tahun 1945 alinea keempat", C: "Teks Proklamasi Kemerdekaan 17 Agustus 1945", D: "Piagam Jakarta tanggal 22 Juni 1945" },
+                answer: "B",
+                explanation: "Rumusan resmi kelima sila Pancasila tercantum secara utuh pada alinea keempat Pembukaan UUD NRI Tahun 1945."
+            },
+            {
+                no: 12, bab: 1, babTitle: "Bab I: Sejarah Kelahiran Pancasila", level: "L2",
+                question: "Sikap berjiwa besar para pendiri bangsa dalam menyepakati perubahan sila pertama demi keutuhan negara patut kita teladani. Contoh penerapan sikap tersebut di lingkungan sekolah adalah...",
+                options: { A: "Mengutamakan kepentingan bersama kelas di atas keinginan pribadi saat diskusi", B: "Memaksakan pendapat kelompok sendiri agar selalu diterima ketua kelas", C: "Hanya mau berteman dengan siswa yang berasal dari daerah yang sama", D: "Menolak hasil keputusan rapat kelas jika tidak sesuai harapan" },
+                answer: "A",
+                explanation: "Mengutamakan kepentingan bersama di atas kepentingan pribadi merupakan wujud nyata meneladani jiwa besar dan semangat persatuan para pendiri bangsa."
+            },
+            {
+                no: 13, bab: 1, babTitle: "Bab I: Sejarah Kelahiran Pancasila", level: "L2",
+                question: "Para pendiri bangsa berasal dari latar belakang suku, agama, dan profesi yang berbeda-beda, namun tetap bersatu merumuskan dasar negara. Nilai luhur yang menonjol dari peristiwa tersebut adalah...",
+                options: { A: "Egoisme kedaerahan dan fanatisme golongan", B: "Nasionalisme, toleransi, dan semangat persatuan dalam keberagaman", C: "Persaingan untuk merebut jabatan tertinggi di pemerintahan", D: "Ketergantungan penuh terhadap bantuan bangsa asing" },
+                answer: "B",
+                explanation: "Keberagaman latar belakang tidak menghalangi para pendiri bangsa untuk bersatu karena dilandasi jiwa nasionalisme dan toleransi yang tinggi."
+            },
+            {
+                no: 14, bab: 1, babTitle: "Bab I: Sejarah Kelahiran Pancasila", level: "L3",
+                question: "Dalam sidang-sidang BPUPKI maupun PPKI, perbedaan pendapat yang tajam selalu berhasil diselesaikan tanpa perpecahan. Kunci keberhasilan para tokoh bangsa tersebut adalah...",
+                options: { A: "Menggunakan voting suara terbanyak pada setiap perdebatan", B: "Menyerahkan semua keputusan secara sepihak kepada ketua sidang", C: "Mengedepankan musyawarah untuk mencapai mufakat dengan kepala dingin", D: "Menunda pembahasan sampai semua pihak tidak hadir" },
+                answer: "C",
+                explanation: "Musyawarah mufakat dengan hati terbuka dan saling menghargai membuat keputusan yang dihasilkan dapat diterima oleh seluruh golongan."
+            },
+
+            // BAB II: PENERAPAN NILAI-NILAI PANCASILA (15 - 27)
+            {
+                no: 15, bab: 2, babTitle: "Bab II: Penerapan Nilai Pancasila", level: "L1",
+                question: "Pancasila memiliki kedudukan yang sangat fundamental bagi bangsa Indonesia, salah satunya sebagai Dasar Negara. Arti penting Pancasila sebagai Dasar Negara adalah...",
+                options: { A: "Sebagai hiasan lambang negara di setiap kantor pemerintahan", B: "Menjadi fondasi dan landasan utama dalam mengatur penyelenggaraan ketatanegaraan", C: "Sebagai pedoman khusus bagi aparatur sipil negara saja", D: "Sebagai dokumen sejarah yang hanya dipelajari saat ujian" },
+                answer: "B",
+                explanation: "Sebagai Dasar Negara, Pancasila merupakan fondasi berdirinya negara Indonesia dan landasan penyelenggaraan pemerintahan."
+            },
+            {
+                no: 16, bab: 2, babTitle: "Bab II: Penerapan Nilai Pancasila", level: "L2",
+                question: "Selain sebagai dasar negara, Pancasila juga berkedudukan sebagai Pandangan Hidup Bangsa (way of life). Contoh perilaku siswa yang mencerminkan Pancasila sebagai pandangan hidup adalah...",
+                options: { A: "Menjadikan nilai-nilai Pancasila sebagai pedoman bersikap, bertutur kata, dan bertindak sehari-hari", B: "Menghafalkan kelima sila Pancasila hanya ketika diminta guru", C: "Menganggap peraturan sekolah hanya berlaku saat ada guru piket", D: "Mengutamakan prestasi akademik tanpa peduli sikap sopan santun" },
+                answer: "A",
+                explanation: "Pancasila sebagai pandangan hidup berfungsi sebagai petunjuk arah dan pedoman perilaku nyata setiap warga negara dalam kehidupan sehari-hari."
+            },
+            {
+                no: 17, bab: 2, babTitle: "Bab II: Penerapan Nilai Pancasila", level: "L2",
+                question: "Pancasila merupakan sumber dari segala sumber hukum di Indonesia. Konsekuensi hukum dari kedudukan tersebut adalah...",
+                options: { A: "Seluruh peraturan perundang-undangan tidak boleh bertentangan dengan nilai-nilai Pancasila", B: "Setiap daerah bebas membuat peraturan yang bertentangan dengan UUD 1945", C: "Peraturan sekolah memiliki kedudukan lebih tinggi daripada undang-undang", D: "Hukum hanya ditegakkan apabila merugikan pejabat negara" },
+                answer: "A",
+                explanation: "Sebagai sumber dari segala sumber hukum, Pancasila menjadi tolok ukur kebenaran dan keadilan bagi seluruh peraturan di bawahnya."
+            },
+            {
+                no: 18, bab: 2, babTitle: "Bab II: Penerapan Nilai Pancasila", level: "L2",
+                question: "Di SMP AL-AKHYAR, seluruh siswa dibiasakan berdoa sebelum dan sesudah pelajaran serta saling menghormati teman yang sedang menjalankan ibadah. Pembiasaan tersebut merupakan penerapan nilai Pancasila terutama...",
+                options: { A: "Sila Kemanusiaan yang Adil dan Beradab", B: "Sila Ketuhanan Yang Maha Esa", C: "Sila Persatuan Indonesia", D: "Sila Keadilan Sosial bagi Seluruh Rakyat Indonesia" },
+                answer: "B",
+                explanation: "Berdoa, menjalankan ibadah dengan tekun, serta saling menghormati kebebasan beribadah mencerminkan Sila Pertama (Ketuhanan Yang Maha Esa)."
+            },
+            {
+                no: 19, bab: 2, babTitle: "Bab II: Penerapan Nilai Pancasila", level: "L2",
+                question: "Ketika terjadi musibah banjir bandang di daerah lain, pengurus OSIS menggalang donasi bantuan pakaian layak pakai dan alat tulis dari seluruh siswa. Tindakan tersebut mencerminkan pengamalan Sila ke-2 karena...",
+                options: { A: "Menunjukkan kekayaan siswa di sekolah", B: "Mengembangkan sikap tenggang rasa dan kepedulian terhadap sesama manusia", C: "Bertujuan mendapatkan pujian dari kepala sekolah", D: "Merupakan kewajiban hukum yang diatur undang-undang" },
+                answer: "B",
+                explanation: "Sila ke-2 (Kemanusiaan yang Adil dan Beradab) mengajarkan nilai kemanusiaan, empati, tenggang rasa, dan saling menolong sesama."
+            },
+            {
+                no: 20, bab: 2, babTitle: "Bab II: Penerapan Nilai Pancasila", level: "L2",
+                question: "Perhatikan pernyataan berikut:\n1) Mengikuti upacara bendera hari Senin dengan tertib dan khidmat.\n2) Bangga menggunakan produk buatan pengrajin dalam negeri.\n3) Berteman akrab tanpa membeda-bedakan suku dan bahasa daerah.\nPerilaku di atas merupakan perwujudan nilai Pancasila...",
+                options: { A: "Sila Pertama", B: "Sila Kedua", C: "Sila Keempat", D: "Sila Ketiga" },
+                answer: "D",
+                explanation: "Cinta tanah air, bangga produk bangsa sendiri, dan menjaga kerukunan antarsuku adalah inti pengamalan Sila ke-3 (Persatuan Indonesia)."
+            },
+            {
+                no: 21, bab: 2, babTitle: "Bab II: Penerapan Nilai Pancasila", level: "L2",
+                question: "Kelas VII-F akan menentukan tujuan kegiatan karya wisata. Wali kelas mengajak seluruh siswa berdiskusi dan menyampaikan usulan secara bergantian hingga tercapai kesepakatan bersama. Sikap yang tepat setelah keputusan disepakati adalah...",
+                options: { A: "Mengkritik keputusan jika usulan pribadi tidak terpilih", B: "Menerima dan melaksanakan hasil keputusan musyawarah dengan penuh tanggung jawab", C: "Tidak ikut kegiatan karena merasa pendapatnya diabaikan", D: "Meminta pemungutan suara ulang sampai usulannya menang" },
+                answer: "B",
+                explanation: "Sesuai Sila ke-4, setiap peserta musyawarah wajib menghormati dan melaksanakan keputusan bersama dengan iktikad baik dan tanggung jawab."
+            },
+            {
+                no: 22, bab: 2, babTitle: "Bab II: Penerapan Nilai Pancasila", level: "L2",
+                question: "Sila kelima Pancasila berbunyi 'Keadilan Sosial bagi Seluruh Rakyat Indonesia'. Contoh penerapan sila kelima dalam kehidupan pelajar sehari-hari adalah...",
+                options: { A: "Hidup hemat, tidak boros uang saku, serta menghargai hasil karya teman", B: "Selalu menuntut hak tanpa mau melaksanakan kewajiban piket kelas", C: "Memilih-milih teman berdasarkan status ekonomi keluarganya", D: "Menggunakan fasilitas sekolah secara berlebihan demi kepuasan pribadi" },
+                answer: "A",
+                explanation: "Sila ke-5 menekankan keseimbangan hak dan kewajiban, sikap adil, hidup hemat (tidak bergaya hidup mewah/boros), serta menghargai karya orang lain."
+            },
+            {
+                no: 23, bab: 2, babTitle: "Bab II: Penerapan Nilai Pancasila", level: "L1",
+                question: "Budaya gotong royong merupakan kepribadian asli bangsa Indonesia yang memiliki beragam sebutan di daerah. Masyarakat Bali mengenal sistem pengairan sawah berbasis kebersamaan dan keadilan yang disebut...",
+                options: { A: "Mapalus", B: "Subak", C: "Marsiadapari", D: "Sinoman" },
+                answer: "B",
+                explanation: "Subak adalah organisasi kemasyarakatan tradisional di Bali yang mengatur sistem pengairan sawah secara adil dan bergotong royong."
+            },
+            {
+                no: 24, bab: 2, babTitle: "Bab II: Penerapan Nilai Pancasila", level: "L1",
+                question: "Di daerah Minahasa, Sulawesi Utara, terdapat tradisi kerja sama dan tolong-menolong warga secara sukarela dalam kegiatan pertanian maupun kemasyarakatan yang dikenal dengan istilah...",
+                options: { A: "Ngayah", B: "Rambu Solo", C: "Mapalus", D: "Gugur Gunung" },
+                answer: "C",
+                explanation: "Mapalus merupakan tradisi gotong royong masyarakat Minahasa (Sulawesi Utara) yang mencerminkan semangat persatuan dan kekeluargaan."
+            },
+            {
+                no: 25, bab: 2, babTitle: "Bab II: Penerapan Nilai Pancasila", level: "L3",
+                question: "Budaya gotong royong memiliki manfaat besar dalam membangun ketahanan sosial masyarakat. Dampak positif utama dari pelestarian budaya gotong royong adalah...",
+                options: { A: "Menumbuhkan sikap individualisme di tengah masyarakat modern", B: "Mempererat tali persaudaraan sehingga pekerjaan berat menjadi ringan dan cepat selesai", C: "Mengurangi tanggung jawab pemerintah dalam pembangunan daerah", D: "Menimbulkan ketergantungan warga terhadap bantuan orang lain" },
+                answer: "B",
+                explanation: "Gotong royong memperkuat solidaritas sosial, mempererat persaudaraan, dan membuat pekerjaan bersama terasa lebih ringan."
+            },
+            {
+                no: 26, bab: 2, babTitle: "Bab II: Penerapan Nilai Pancasila", level: "L3",
+                question: "Di era media sosial saat ini, sering beredar berita bohong (hoaks) dan ujaran kebencian yang dapat memecah belah persatuan. Sikap pelajar yang berkarakter Pancasila dalam menghadapi fenomena tersebut adalah...",
+                options: { A: "Langsung membagikan berita sensasional ke grup kelas agar viral", B: "Menyaring kebenaran informasi terlebih dahulu sebelum membagikan (saring sebelum sharing)", C: "Ikut berkomentar kasar untuk membela salah satu pihak", D: "Membuat akun anonim untuk menyebarkan sindiran kepada teman" },
+                answer: "B",
+                explanation: "Berpikir kritis memeriksa kebenaran informasi serta menjaga etika digital mencerminkan pengamalan Sila ke-2 dan Sila ke-3 di era digital."
+            },
+            {
+                no: 27, bab: 2, babTitle: "Bab II: Penerapan Nilai Pancasila", level: "L2",
+                question: "Pelajar Indonesia diharapkan memiliki karakter Profil Pelajar Pancasila. Ketika siswa mampu bekerja sama dengan teman dari berbagai latar belakang budaya dan menghargai tradisi daerah lain, ia sedang mengembangkan dimensi...",
+                options: { A: "Kemandirian", B: "Berkebinekaan Global dan Bergotong Royong", C: "Kreativitas Individual", D: "Persaingan Bebas" },
+                answer: "B",
+                explanation: "Menghargai keberagaman budaya sekaligus mampu berkolaborasi adalah inti dari dimensi Berkebinekaan Global dan Bergotong Royong."
+            },
+
+            // BAB III: PATUH TERHADAP NORMA (28 - 40)
+            {
+                no: 28, bab: 3, babTitle: "Bab III: Patuh Terhadap Norma", level: "L1",
+                question: "Filsuf Yunani kuno Aristoteles menyebut manusia sebagai 'Zoon Politikon'. Arti dari istilah tersebut adalah...",
+                options: { A: "Manusia adalah makhluk yang selalu ingin berkuasa atas alam", B: "Manusia adalah makhluk sosial yang selalu membutuhkan orang lain dalam hidupnya", C: "Manusia adalah makhluk individu yang dapat hidup menyendiri", D: "Manusia adalah makhluk yang bebas bertindak tanpa aturan" },
+                answer: "B",
+                explanation: "Zoon Politikon berarti manusia pada kodratnya adalah makhluk sosial yang hidup berkelompok dan saling bergantung satu sama lain."
+            },
+            {
+                no: 29, bab: 3, babTitle: "Bab III: Patuh Terhadap Norma", level: "L1",
+                question: "Dalam interaksi sosial sehari-hari, masyarakat memerlukan aturan atau kaidah yang disepakati bersama sebagai pedoman bertingkah laku. Kaidah atau ketentuan yang mengatur tingkah laku manusia dalam masyarakat disebut...",
+                options: { A: "Norma", B: "Adat istiadat kuno", C: "Kebebasan mutlak", D: "Hak asasi" },
+                answer: "A",
+                explanation: "Norma adalah aturan, kaidah, atau ketentuan yang mengikat warga kelompok dalam masyarakat sebagai panduan, tatanan, dan pengendali tingkah laku."
+            },
+            {
+                no: 30, bab: 3, babTitle: "Bab III: Patuh Terhadap Norma", level: "L3",
+                question: "Bayangkan apabila dalam sebuah kota atau sekolah tidak ada satu pun aturan maupun norma yang berlaku dan ditaati. Kondisi yang paling mungkin terjadi adalah...",
+                options: { A: "Masyarakat hidup semakin damai karena bebas melakukan apa saja", B: "Terciptanya keadilan merata bagi seluruh lapisan masyarakat", C: "Terjadi kekacauan, benturan kepentingan, dan berlaku hukum rimba (yang kuat menindas yang lemah)", D: "Setiap orang akan otomatis menghormati hak orang lain tanpa diminta" },
+                answer: "C",
+                explanation: "Tanpa norma, setiap individu akan bertindak semaunya mengikuti ego masing-masing sehingga memicu kekacauan dan hukum rimba (homo homini lupus)."
+            },
+            {
+                no: 31, bab: 3, babTitle: "Bab III: Patuh Terhadap Norma", level: "L1",
+                question: "Norma yang bersumber dari wahyu Tuhan Yang Maha Esa yang tercantum dalam kitab suci dan berisi perintah serta larangan bagi umat-Nya adalah...",
+                options: { A: "Norma Hukum", B: "Norma Kesopanan", C: "Norma Agama", D: "Norma Kesusilaan" },
+                answer: "C",
+                explanation: "Norma Agama bersumber dari ajaran Tuhan YME (kitab suci), dengan sanksi berupa dosa dan balasan di akhirat kelak."
+            },
+            {
+                no: 32, bab: 3, babTitle: "Bab III: Patuh Terhadap Norma", level: "L2",
+                question: "Rani menemukan dompet berisi uang di halaman sekolah. Meskipun tidak ada orang yang melihat, hati nuraninya mendorong Rani untuk menyerahkan dompet tersebut ke ruang guru. Tindakan Rani menunjukkan ketaatan terhadap...",
+                options: { A: "Norma Hukum", B: "Norma Kesopanan", C: "Norma Kesusilaan", D: "Norma Adat" },
+                answer: "C",
+                explanation: "Norma Kesusilaan bersumber dari bisikan hati nurani manusia tentang baik dan buruk. Jika dilanggar, sanksinya adalah rasa menyesal dan bersalah."
+            },
+            {
+                no: 33, bab: 3, babTitle: "Bab III: Patuh Terhadap Norma", level: "L2",
+                question: "Ketika berjalan melewati sekelompok bapak dan ibu guru yang sedang berbincang di koridor sekolah, Dimas menundukkan badan sedikit sambil mengucapkan 'Permisi, Pak/Bu' dengan ramah. Perilaku Dimas sesuai dengan...",
+                options: { A: "Norma Hukum", B: "Norma Kesopanan", C: "Norma Agama", D: "Norma Konstitusi" },
+                answer: "B",
+                explanation: "Norma Kesopanan bersumber dari tata pergaulan dan kebiasaan masyarakat setempat, dengan sanksi berupa teguran, cemoohan, atau dikucilkan."
+            },
+            {
+                no: 34, bab: 3, babTitle: "Bab III: Patuh Terhadap Norma", level: "L1",
+                question: "Aturan yang dibuat oleh lembaga negara yang berwenang, bersifat tertulis, memaksa, serta memiliki sanksi tegas dan nyata bagi pelanggarnya disebut...",
+                options: { A: "Norma Kesopanan", B: "Norma Kesusilaan", C: "Norma Hukum", D: "Norma Kebiasaan" },
+                answer: "C",
+                explanation: "Norma Hukum dibuat oleh badan resmi negara (seperti DPR dan Pemerintah), bersifat memaksa, dan sanksinya tegas (denda, kurungan, penjara)."
+            },
+            {
+                no: 35, bab: 3, babTitle: "Bab III: Patuh Terhadap Norma", level: "L2",
+                question: "Perbedaan mendasar antara sanksi Norma Hukum dengan ketiga norma lainnya (Agama, Kesusilaan, dan Kesopanan) adalah...",
+                options: { A: "Sanksi norma hukum bersifat tegas, nyata, dan dapat dipaksakan oleh aparat negara", B: "Sanksi norma hukum hanya berupa rasa penyesalan dalam hati pelakunya", C: "Sanksi norma hukum baru dirasakan di kehidupan akhirat nanti", D: "Sanksi norma hukum hanya berupa teguran lisan dari tetangga sekitar" },
+                answer: "A",
+                explanation: "Keistimewaan norma hukum terletak pada sifat memaksanya dan sanksi nyata langsung (penjara/denda) yang dijatuhkan oleh lembaga peradilan negara."
+            },
+            {
+                no: 36, bab: 3, babTitle: "Bab III: Patuh Terhadap Norma", level: "L2",
+                question: "Penegakan norma hukum bertujuan mewujudkan keadilan di tengah masyarakat. Prinsip persamaan kedudukan di hadapan hukum (equality before the law) mengandung arti...",
+                options: { A: "Pejabat negara mendapatkan keringanan hukuman jika melanggar aturan", B: "Setiap warga negara memiliki kedudukan yang sama di depan hukum tanpa pandang bulu", C: "Masyarakat biasa tidak berhak mendapatkan pembelaan hukum", D: "Hukum hanya berlaku bagi masyarakat yang tinggal di kota besar" },
+                answer: "B",
+                explanation: "Equality before the law menegaskan bahwa semua warga negara sama kedudukannya di hadapan hukum tanpa diskriminasi jabatan, kekayaan, maupun status."
+            },
+            {
+                no: 37, bab: 3, babTitle: "Bab III: Patuh Terhadap Norma", level: "L2",
+                question: "Tata tertib sekolah merupakan bagian dari aturan yang wajib dipatuhi seluruh warga sekolah. Manfaat utama bagi siswa yang disiplin menaati tata tertib sekolah adalah...",
+                options: { A: "Menghindari hukuman dari guru piket semata", B: "Terciptanya suasana belajar yang aman, tertib, nyaman, dan kondusif", C: "Mendapatkan kebebasan pulang lebih awal setiap hari", D: "Menjadi siswa yang ditakuti oleh teman-teman sekelas" },
+                answer: "B",
+                explanation: "Kepatuhan terhadap tata tertib sekolah menciptakan lingkungan belajar yang tertib, aman, dan nyaman sehingga prestasi belajar dapat berkembang optimal."
+            },
+            {
+                no: 38, bab: 3, babTitle: "Bab III: Patuh Terhadap Norma", level: "L2",
+                question: "Setiap pengendara sepeda motor di jalan raya wajib memakai helm berstandar SNI dan memiliki Surat Izin Mengemudi (SIM). Kewajiban tersebut merupakan bentuk kepatuhan terhadap...",
+                options: { A: "Norma Kesopanan", B: "Norma Hukum", C: "Norma Kesusilaan", D: "Norma Adat" },
+                answer: "B",
+                explanation: "Kewajiban memakai helm SNI dan memiliki SIM diatur dalam UU Lalu Lintas dan Angkutan Jalan (Norma Hukum) dengan sanksi tilang/denda."
+            },
+            {
+                no: 39, bab: 3, babTitle: "Bab III: Patuh Terhadap Norma", level: "L3",
+                question: "Andi menyontek saat ulangan harian karena malas belajar. Setelah mendapatkan nilai bagus, Andi justru merasa gelisah, tidak tenang, dan malu pada dirinya sendiri. Dalam peristiwa tersebut, norma yang telah dilanggar Andi beserta sanksinya adalah...",
+                options: { A: "Norma Hukum dengan sanksi denda uang", B: "Norma Agama dengan sanksi dikucilkan warga", C: "Norma Kesusilaan dengan sanksi rasa bersalah dan gelisah dari hati nurani", D: "Norma Kesopanan dengan sanksi hukuman penjara" },
+                answer: "C",
+                explanation: "Menyontek bertentangan dengan kejujuran hati nurani (Norma Kesusilaan), sehingga menimbulkan sanksi batin berupa rasa gelisah dan bersalah."
+            },
+            {
+                no: 40, bab: 3, babTitle: "Bab III: Patuh Terhadap Norma", level: "L3",
+                question: "Kesadaran mematuhi norma sebaiknya ditanamkan sejak usia pelajar. Sikap paling tepat yang menunjukkan tumbuhnya kesadaran hukum sejati pada diri seorang siswa adalah...",
+                options: { A: "Membuang sampah pada tempatnya hanya ketika dilihat oleh guru", B: "Menaati peraturan sekolah dan lalu lintas karena sadar hal itu baik demi keselamatan bersama", C: "Memakai atribut seragam lengkap hanya saat ada razia ketertiban", D: "Mengikuti aturan jika teman-teman dekat juga melakukannya" },
+                answer: "B",
+                explanation: "Kesadaran hukum sejati lahir dari dalam diri (kesadaran internal) bahwa norma dibuat untuk melindungi keselamatan dan ketertiban bersama, bukan karena takut diawasi."
+            }
+        ];
+
+        /* =====================================================================
+           5. DATA 10 SOAL URAIAN (NO. 41 - 50) + KUNCI & RUBRIK SKOR (0-4)
+           ===================================================================== */
+        const essayQuestionsData = [
+            {
+                no: 41,
+                bab: "Bab I: Sejarah Kelahiran Pancasila",
+                level: "L1",
+                question: "Sebutkan 3 (tiga) tokoh bangsa yang menyampaikan usulan rumusan dasar negara pada sidang pertama BPUPKI beserta tanggal penyampaiannya secara berurutan!",
+                answerKey: [
+                    "1. <strong>Mr. Muhammad Yamin</strong> — menyampaikan usulan dasar negara pada tanggal <strong>29 Mei 1945</strong>.",
+                    "2. <strong>Mr. Soepomo</strong> — menyampaikan usulan dasar negara pada tanggal <strong>31 Mei 1945</strong>.",
+                    "3. <strong>Ir. Soekarno</strong> — menyampaikan usulan dasar negara (Pancasila) pada tanggal <strong>1 Juni 1945</strong>."
+                ],
+                rubric: [
+                    { score: 4, desc: "Menyebutkan 3 tokoh dengan nama lengkap dan 3 tanggal penyampaian secara tepat dan berurutan." },
+                    { score: 3, desc: "Menyebutkan 3 tokoh dengan benar, namun hanya 2 tanggal yang tepat." },
+                    { score: 2, desc: "Menyebutkan 2 tokoh beserta tanggalnya dengan benar, atau 3 tokoh tanpa tanggal." },
+                    { score: 1, desc: "Hanya menyebutkan 1 tokoh atau tanggal dengan benar." },
+                    { score: 0, desc: "Tidak menjawab atau jawaban seluruhnya tidak sesuai." }
+                ]
+            },
+            {
+                no: 42,
+                bab: "Bab I: Sejarah Kelahiran Pancasila",
+                level: "L3",
+                question: "Jelaskan alasan utama terjadinya perubahan tujuh kata pada sila pertama Piagam Jakarta menjadi 'Ketuhanan Yang Maha Esa' dalam sidang PPKI tanggal 18 Agustus 1945!",
+                answerKey: [
+                    "Perubahan dilakukan karena adanya <strong>usulan/keberatan dari wakil masyarakat Indonesia bagian Timur (non-Islam)</strong> yang disampaikan melalui <strong>Drs. Mohammad Hatta</strong>.",
+                    "Tujuannya adalah <strong>demi menjaga persatuan, kesatuan, dan keutuhan bangsa Indonesia yang majemuk</strong> (beragam agama) agar tidak terjadi perpecahan di awal kemerdekaan."
+                ],
+                rubric: [
+                    { score: 4, desc: "Menjelaskan latar belakang usulan wakil Indonesia Timur (non-Islam) DAN tujuan menjaga persatuan/keutuhan bangsa yang majemuk secara lengkap." },
+                    { score: 3, desc: "Menjelaskan tujuan persatuan bangsa dengan jelas namun kurang rinci menyebutkan asal usulannya (atau sebaliknya)." },
+                    { score: 2, desc: "Menjawab secara singkat bahwa perubahan dilakukan agar tidak terjadi perpecahan." },
+                    { score: 1, desc: "Jawaban kurang tepat namun masih berkaitan dengan sidang PPKI 18 Agustus 1945." },
+                    { score: 0, desc: "Tidak menjawab atau jawaban tidak relevan." }
+                ]
+            },
+            {
+                no: 43,
+                bab: "Bab I: Sejarah Kelahiran Pancasila",
+                level: "L2",
+                question: "Sebutkan 4 (empat) nilai keteladanan para pendiri bangsa dalam proses perumusan dan pengesahan Pancasila yang dapat diterapkan dalam kehidupan sehari-hari!",
+                answerKey: [
+                    "1. <strong>Mengutamakan persatuan dan kesatuan bangsa</strong> di atas kepentingan pribadi maupun golongan.",
+                    "2. <strong>Rela berkorban dan berjiwa besar</strong> (legowo menerima perubahan demi kepentingan bersama).",
+                    "3. <strong>Menghargai perbedaan pendapat melalui musyawarah mufakat</strong>.",
+                    "4. <strong>Cinta tanah air (nasionalisme) dan pantang menyerah</strong> dalam memperjuangkan kemerdekaan."
+                ],
+                rubric: [
+                    { score: 4, desc: "Menyebutkan 4 nilai keteladanan pendiri bangsa dengan tepat dan jelas." },
+                    { score: 3, desc: "Menyebutkan 3 nilai keteladanan pendiri bangsa dengan tepat." },
+                    { score: 2, desc: "Menyebutkan 2 nilai keteladanan pendiri bangsa dengan tepat." },
+                    { score: 1, desc: "Hanya menyebutkan 1 nilai keteladanan dengan tepat." },
+                    { score: 0, desc: "Tidak menjawab atau jawaban salah." }
+                ]
+            },
+            {
+                no: 44,
+                bab: "Bab II: Penerapan Nilai Pancasila",
+                level: "L2",
+                question: "Jelaskan perbedaan kedudukan Pancasila sebagai Dasar Negara dengan Pancasila sebagai Pandangan Hidup Bangsa!",
+                answerKey: [
+                    "<strong>Pancasila sebagai Dasar Negara</strong>: Berfungsi sebagai fondasi/landasan berdirinya negara, dasar mengatur penyelenggaraan pemerintahan, serta <em>sumber dari segala sumber hukum</em> di Indonesia.",
+                    "<strong>Pancasila sebagai Pandangan Hidup Bangsa</strong>: Berfungsi sebagai pedoman sikap, perilaku, dan petunjuk arah bagi setiap warga negara dalam kehidupan bermasyarakat sehari-hari."
+                ],
+                rubric: [
+                    { score: 4, desc: "Menjelaskan pengertian keduanya secara tepat dan menunjukkan perbedaan fokus (penyelenggaraan negara/hukum vs pedoman perilaku warga sehari-hari)." },
+                    { score: 3, desc: "Menjelaskan kedua kedudukan dengan cukup tepat namun perbedaannya kurang kontras." },
+                    { score: 2, desc: "Hanya menjelaskan salah satu kedudukan (Dasar Negara saja atau Pandangan Hidup saja) dengan benar." },
+                    { score: 1, desc: "Penjelasan masih sangat umum dan kurang akurat." },
+                    { score: 0, desc: "Tidak menjawab atau jawaban tidak sesuai." }
+                ]
+            },
+            {
+                no: 45,
+                bab: "Bab II: Penerapan Nilai Pancasila",
+                level: "L2",
+                question: "Berikan masing-masing 2 (dua) contoh nyata penerapan Sila ke-3 dan Sila ke-4 Pancasila di lingkungan sekolah!",
+                answerKey: [
+                    "<strong>Contoh Penerapan Sila ke-3 (Persatuan Indonesia) di sekolah:</strong><br>1. Berteman dengan siapa saja tanpa membedakan suku, bahasa, maupun asal daerah.<br>2. Mengikuti upacara bendera dengan tertib dan khidmat.",
+                    "<strong>Contoh Penerapan Sila ke-4 (Kerakyatan...) di sekolah:</strong><br>1. Memilih ketua dan pengurus kelas melalui musyawarah mufakat.<br>2. Menghargai pendapat teman saat berdiskusi kelompok dan melaksanakan keputusan bersama."
+                ],
+                rubric: [
+                    { score: 4, desc: "Memberikan 2 contoh tepat untuk Sila ke-3 DAN 2 contoh tepat untuk Sila ke-4 di lingkungan sekolah (total 4 contoh)." },
+                    { score: 3, desc: "Memberikan 3 contoh yang tepat sesuai sila dan konteks sekolah." },
+                    { score: 2, desc: "Memberikan 2 contoh yang tepat sesuai sila." },
+                    { score: 1, desc: "Hanya memberikan 1 contoh yang tepat." },
+                    { score: 0, desc: "Tidak menjawab atau contoh tertukar/tidak sesuai." }
+                ]
+            },
+            {
+                no: 46,
+                bab: "Bab III: Patuh Terhadap Norma",
+                level: "L2",
+                question: "Sebutkan 3 (tiga) kodrat hakikat manusia dalam kehidupan dan jelaskan hubungannya dengan kebutuhan manusia akan aturan/norma!",
+                answerKey: [
+                    "<strong>Tiga kodrat hakikat manusia:</strong><br>1. Manusia sebagai <strong>Makhluk Tuhan Yang Maha Esa</strong>.<br>2. Manusia sebagai <strong>Makhluk Individu</strong> (memiliki ciri khas dan kepentingan pribadi).<br>3. Manusia sebagai <strong>Makhluk Sosial</strong> (<em>Zoon Politikon</em> — selalu membutuhkan orang lain).",
+                    "<strong>Hubungannya dengan norma:</strong> Karena manusia hidup bersama dalam masyarakat sementara setiap individu memiliki kepentingan yang berbeda-beda, diperlukan <strong>norma/aturan</strong> untuk mencegah benturan kepentingan, melindungi hak sesama, dan menghindari kekacauan (hukum rimba)."
+                ],
+                rubric: [
+                    { score: 4, desc: "Menyebutkan 3 kodrat manusia secara tepat DAN menjelaskan hubungannya dengan kebutuhan norma (mencegah benturan kepentingan/kekacauan)." },
+                    { score: 3, desc: "Menyebutkan 3 kodrat manusia dengan benar namun penjelasan hubungannya kurang mendalam." },
+                    { score: 2, desc: "Menyebutkan 2 kodrat manusia atau hanya menjelaskan alasan perlunya norma tanpa menyebut kodratnya." },
+                    { score: 1, desc: "Hanya menyebutkan 1 kodrat manusia." },
+                    { score: 0, desc: "Tidak menjawab atau jawaban tidak sesuai." }
+                ]
+            },
+            {
+                no: 47,
+                bab: "Bab III: Patuh Terhadap Norma",
+                level: "L1",
+                question: "Sebutkan 4 (empat) fungsi utama norma dalam kehidupan bermasyarakat!",
+                answerKey: [
+                    "1. Sebagai <strong>pedoman atau panduan bertingkah laku</strong> bagi warga masyarakat.",
+                    "2. <strong>Menjaga kerukunan, ketertiban, dan keamanan</strong> umum dalam masyarakat.",
+                    "3. <strong>Melindungi hak dan kepentingan</strong> setiap warga negara agar tidak dilanggar orang lain.",
+                    "4. <strong>Mewujudkan keadilan dan kepastian aturan</strong> dalam penyelesaian masalah sosial."
+                ],
+                rubric: [
+                    { score: 4, desc: "Menyebutkan 4 fungsi utama norma dalam masyarakat dengan jelas dan tepat." },
+                    { score: 3, desc: "Menyebutkan 3 fungsi utama norma dengan tepat." },
+                    { score: 2, desc: "Menyebutkan 2 fungsi utama norma dengan tepat." },
+                    { score: 1, desc: "Hanya menyebutkan 1 fungsi norma." },
+                    { score: 0, desc: "Tidak menjawab atau jawaban salah." }
+                ]
+            },
+            {
+                no: 48,
+                bab: "Bab III: Patuh Terhadap Norma",
+                level: "L2",
+                question: "Jelaskan perbedaan sumber aturan dan bentuk sanksi dari keempat macam norma (Norma Agama, Kesusilaan, Kesopanan, dan Hukum)!",
+                answerKey: [
+                    "1. <strong>Norma Agama</strong>: Sumber dari <em>wahyu Tuhan YME / kitab suci</em>; sanksi berupa <em>dosa dan balasan di akhirat</em>.",
+                    "2. <strong>Norma Kesusilaan</strong>: Sumber dari <em>hati nurani manusia</em>; sanksi berupa <em>rasa menyesal, bersalah, dan gelisah</em>.",
+                    "3. <strong>Norma Kesopanan</strong>: Sumber dari <em>pergaulan / kebiasaan masyarakat</em>; sanksi berupa <em>teguran, cemoohan, atau dikucilkan</em>.",
+                    "4. <strong>Norma Hukum</strong>: Sumber dari <em>lembaga negara yang berwenang</em>; sanksi <em>tegas dan memaksa (denda, kurungan, penjara)</em>."
+                ],
+                rubric: [
+                    { score: 4, desc: "Menjelaskan sumber aturan DAN bentuk sanksi keempat norma secara lengkap dan akurat." },
+                    { score: 3, desc: "Menjelaskan 3 norma lengkap (sumber & sanksi) atau 4 norma namun salah satu aspek kurang lengkap." },
+                    { score: 2, desc: "Menjelaskan 2 norma secara lengkap (sumber & sanksi)." },
+                    { score: 1, desc: "Hanya menjelaskan 1 norma dengan tepat." },
+                    { score: 0, desc: "Tidak menjawab atau jawaban tertukar seluruhnya." }
+                ]
+            },
+            {
+                no: 49,
+                bab: "Bab III: Patuh Terhadap Norma",
+                level: "L3",
+                question: "Bacalah kasus berikut: <em>\"Reno (13 tahun, pelajar kelas VII) mengendarai sepeda motor di jalan raya tanpa memakai helm dan menerobos lampu merah. Ketika ditegur warga yang lebih tua, Reno justru membentak dengan kata-kata kasar tanpa merasa bersalah.\"</em> Analisis 3 (tiga) macam norma yang telah dilanggar oleh Reno beserta alasannya!",
+                answerKey: [
+                    "1. <strong>Norma Hukum</strong>: Reno masih berusia 13 tahun (belum cukup umur untuk memiliki SIM), berkendara tanpa memakai helm SNI, dan menerobos lampu merah yang melanggar UU Lalu Lintas.",
+                    "2. <strong>Norma Kesopanan</strong>: Reno membentak warga yang berusia lebih tua dengan kata-kata kasar dan tidak santun.",
+                    "3. <strong>Norma Kesusilaan</strong>: Tindakan Reno menerobos lampu merah membahayakan keselamatan jiwa dirinya maupun pengguna jalan lain, namun ia tidak memiliki rasa bersalah atau penyesalan dari hati nuraninya."
+                ],
+                rubric: [
+                    { score: 4, desc: "Mengidentifikasi 3 norma (Hukum, Kesopanan, Kesusilaan) beserta analisis alasan yang tepat sesuai kasus Reno." },
+                    { score: 3, desc: "Mengidentifikasi 3 norma namun hanya 2 analisis alasan yang dijelaskan secara tepat." },
+                    { score: 2, desc: "Mengidentifikasi 2 norma beserta analisis alasannya dengan tepat." },
+                    { score: 1, desc: "Hanya mengidentifikasi 1 norma yang dilanggar." },
+                    { score: 0, desc: "Tidak menjawab atau analisis tidak sesuai kasus." }
+                ]
+            },
+            {
+                no: 50,
+                bab: "Bab III: Patuh Terhadap Norma",
+                level: "L3",
+                question: "Rumuskan 4 (empat) komitmen aksi nyata yang akan kamu lakukan sebagai pelajar SMP AL-AKHYAR untuk membiasakan sikap patuh terhadap norma di lingkungan sekolah!",
+                answerKey: [
+                    "1. <strong>Datang ke sekolah tepat waktu</strong> sebelum bel masuk berbunyi sebagai wujud disiplin tata tertib.",
+                    "2. <strong>Berpakaian seragam lengkap, bersih, dan rapi</strong> sesuai ketentuan sekolah.",
+                    "3. <strong>Bertutur kata sopan, ramah, dan hormat</strong> kepada guru, tenaga kependidikan, serta sesama teman.",
+                    "4. <strong>Menjaga kebersihan kelas, jujur saat ulangan, dan menaati kesepakatan bersama</strong> di kelas."
+                ],
+                rubric: [
+                    { score: 4, desc: "Merumuskan 4 komitmen aksi nyata yang konkret, positif, dan relevan dengan kehidupan pelajar di sekolah." },
+                    { score: 3, desc: "Merumuskan 3 komitmen aksi nyata yang konkret dan relevan." },
+                    { score: 2, desc: "Merumuskan 2 komitmen aksi nyata yang relevan." },
+                    { score: 1, desc: "Hanya merumuskan 1 komitmen aksi nyata." },
+                    { score: 0, desc: "Tidak menjawab atau komitmen tidak relevan." }
+                ]
+            }
+        ];
+
+        /* =====================================================================
+           6. STATE MANAGEMENT APLIKASI
+           ===================================================================== */
+        let currentTab = 'materi';
+        let selectedChapter = 1;
+
+        // Flashcards State
+        let activeFlashcards = [...flashcardsData];
+        let fcIndex = 0;
+        let fcMasteredSet = new Set();
+
+        // Quiz State
+        let activeQuizList = [...quizQuestionsData];
+        let currentQuizIdx = 0;
+        let userAnswers = {}; // key: question.no, value: 'A' | 'B' | 'C' | 'D'
+        let timerActive = false;
+        let timerSeconds = 0;
+        let timerInterval = null;
+
+        // Essay State
+        let userEssayTexts = {}; // key: essay.no, value: string
+        let userEssayScores = {}; // key: essay.no, value: number (0-4)
+
+        /* =====================================================================
+           7. FUNGSI NAVIGASI TAB & NOTIFIKASI TOAST
+           ===================================================================== */
+        function switchTab(tabName) {
+            currentTab = tabName;
+            // Hide all sections
+            document.querySelectorAll('.tab-section').forEach(sec => sec.classList.add('hidden'));
+            // Show target section
+            document.getElementById(`section-${tabName}`).classList.remove('hidden');
+
+            // Update button styles
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-red-600', 'text-white', 'shadow-md', 'shadow-red-600/20', 'font-bold');
+                btn.classList.add('text-slate-600', 'hover:bg-slate-100', 'font-semibold');
+            });
+
+            const activeBtn = document.getElementById(`tab-btn-${tabName}`);
+            activeBtn.classList.remove('text-slate-600', 'hover:bg-slate-100', 'font-semibold');
+            activeBtn.classList.add('bg-red-600', 'text-white', 'shadow-md', 'shadow-red-600/20', 'font-bold');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showToast(message, iconClass = "fa-circle-info text-amber-400") {
+            const toast = document.getElementById('toast-notification');
+            document.getElementById('toast-message').textContent = message;
+            document.getElementById('toast-icon').className = `fa-solid ${iconClass}`;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 2800);
+        }
+
+        /* =====================================================================
+           8. LOGIKA TAB 1: RINGKASAN MATERI & KISI-KISI
+           ===================================================================== */
+        function selectChapter(chapNum) {
+            selectedChapter = chapNum;
+            const colors = { 1: 'border-red-600', 2: 'border-amber-500', 3: 'border-sky-600' };
+
+            [1, 2, 3].forEach(num => {
+                const card = document.getElementById(`chap-card-${num}`);
+                card.classList.remove('border-red-600', 'border-amber-500', 'border-sky-600', 'shadow-md');
+                card.classList.add('border-slate-200', 'shadow-sm');
+            });
+
+            const activeCard = document.getElementById(`chap-card-${chapNum}`);
+            activeCard.classList.remove('border-slate-200', 'shadow-sm');
+            activeCard.classList.add(colors[chapNum], 'shadow-md');
+
+            renderChapterDetail(chapNum);
+        }
+
+        function renderChapterDetail(chapNum) {
+            const data = chapterSummaries[chapNum];
+            const badgeBg = chapNum === 1 ? 'bg-red-100 text-red-700' : (chapNum === 2 ? 'bg-amber-100 text-amber-800' : 'bg-sky-100 text-sky-800');
+            const dotColor = chapNum === 1 ? 'bg-red-600' : (chapNum === 2 ? 'bg-amber-500' : 'bg-sky-600');
+
+            let sectionsHtml = data.sections.map(sec => `
+                <div class="bg-slate-50/80 rounded-2xl p-5 border border-slate-200/80">
+                    <h4 class="font-display font-bold text-base sm:text-lg text-slate-900 mb-3 flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full ${dotColor} shrink-0"></span>
+                        ${sec.heading}
+                    </h4>
+                    <ul class="space-y-2.5 text-sm text-slate-700 leading-relaxed">
+                        ${sec.points.map(pt => `
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-angle-right text-slate-400 mt-1 shrink-0"></i>
+                                <span>${pt}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+            `).join('');
+
+            document.getElementById('chapter-detail-container').innerHTML = `
+                <div class="border-b border-slate-200 pb-4 mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <div>
+                        <span class="px-3 py-1 rounded-full text-xs font-bold ${badgeBg}">Ringkasan Materi Inti</span>
+                        <h3 class="font-display text-xl sm:text-2xl font-extrabold text-slate-900 mt-2">${data.title}</h3>
+                        <p class="text-sm text-slate-500">${data.subtitle}</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    ${sectionsHtml}
+                </div>
+            `;
+        }
+
+        function renderKisiTable() {
+            const babFilter = document.getElementById('filter-kisi-bab').value;
+            const levelFilter = document.getElementById('filter-kisi-level').value;
+            const bentukFilter = document.getElementById('filter-kisi-bentuk').value;
+
+            const filtered = kisiKisiData.filter(item => {
+                const matchBab = babFilter === 'all' || item.bab === parseInt(babFilter);
+                const matchLevel = levelFilter === 'all' || item.level === levelFilter;
+                const matchBentuk = bentukFilter === 'all' || item.bentuk === bentukFilter;
+                return matchBab && matchLevel && matchBentuk;
+            });
+
+            const tbody = document.getElementById('kisi-table-body');
+            if (filtered.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="6" class="py-8 text-center text-slate-500">Tidak ada butir kisi-kisi yang cocok dengan filter yang dipilih.</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = filtered.map(item => {
+                const babBadge = item.bab === 1
+                    ? `<span class="px-2 py-0.5 rounded bg-red-100 text-red-700 text-xs font-bold">Bab I</span>`
+                    : (item.bab === 2
+                        ? `<span class="px-2 py-0.5 rounded bg-amber-100 text-amber-800 text-xs font-bold">Bab II</span>`
+                        : `<span class="px-2 py-0.5 rounded bg-sky-100 text-sky-800 text-xs font-bold">Bab III</span>`);
+
+                const levelColor = item.level === 'L1'
+                    ? 'bg-emerald-100 text-emerald-800'
+                    : (item.level === 'L2' ? 'bg-amber-100 text-amber-800' : 'bg-purple-100 text-purple-800');
+
+                const bentukBadge = item.bentuk === 'PG'
+                    ? `<span class="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 text-xs font-bold">PG</span>`
+                    : `<span class="px-2.5 py-0.5 rounded-full bg-sky-100 text-sky-800 text-xs font-bold">Uraian</span>`;
+
+                return `
+                    <tr class="hover:bg-slate-50 transition">
+                        <td class="py-3 px-4 text-center font-display font-bold text-slate-900">${item.no}</td>
+                        <td class="py-3 px-4">
+                            ${babBadge}
+                            <div class="text-xs font-semibold text-slate-700 mt-1">${item.materi}</div>
+                        </td>
+                        <td class="py-3 px-4 text-slate-700 text-xs sm:text-sm">${item.indikator}</td>
+                        <td class="py-3 px-4 text-center">
+                            <span class="px-2.5 py-1 rounded-lg text-xs font-bold ${levelColor}">${item.level}</span>
+                        </td>
+                        <td class="py-3 px-4 text-center">${bentukBadge}</td>
+                        <td class="py-3 px-4 text-center">
+                            <button onclick="jumpToQuestion(${item.no}, '${item.bentuk}')" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-red-600 text-white text-xs font-semibold transition">
+                                Buka Soal
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function jumpToQuestion(no, bentuk) {
+            if (bentuk === 'PG') {
+                document.getElementById('quiz-mode-select').value = 'all';
+                activeQuizList = [...quizQuestionsData];
+                const idx = activeQuizList.findIndex(q => q.no === no);
+                if (idx !== -1) currentQuizIdx = idx;
+                switchTab('kuis');
+                renderQuizQuestion();
+                renderQuizNavigator();
+            } else {
+                switchTab('uraian');
+                setTimeout(() => {
+                    const el = document.getElementById(`essay-card-${no}`);
+                    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 150);
+            }
+        }
+
+        /* =====================================================================
+           9. LOGIKA TAB 2: FLASHCARDS HAFALAN CEPAT
+           ===================================================================== */
+        function filterFlashcards() {
+            const cat = document.getElementById('flashcard-category').value;
+            activeFlashcards = cat === 'all'
+                ? [...flashcardsData]
+                : flashcardsData.filter(fc => fc.cat === cat);
+            fcIndex = 0;
+            document.getElementById('flashcard-wrapper').classList.remove('flipped');
+            renderFlashcard();
+        }
+
+        function shuffleFlashcards() {
+            for (let i = activeFlashcards.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [activeFlashcards[i], activeFlashcards[j]] = [activeFlashcards[j], activeFlashcards[i]];
+            }
+            fcIndex = 0;
+            document.getElementById('flashcard-wrapper').classList.remove('flipped');
+            renderFlashcard();
+            showToast("Urutan kartu flashcards berhasil diacak!", "fa-shuffle text-amber-400");
+        }
+
+        function renderFlashcard() {
+            const card = activeFlashcards[fcIndex];
+            const total = activeFlashcards.length;
+
+            document.getElementById('fc-current-idx').textContent = fcIndex + 1;
+            document.getElementById('fc-total-count').textContent = total;
+            document.getElementById('fc-mastered-count').textContent = fcMasteredSet.size;
+            document.getElementById('fc-progress-bar').style.width = `${((fcIndex + 1) / total) * 100}%`;
+
+            document.getElementById('fc-badge-cat').textContent = card.cat;
+            document.getElementById('fc-front-text').textContent = card.front;
+            document.getElementById('fc-back-text').innerHTML = card.back.replace(/\n/g, '<br>');
+            document.getElementById('fc-back-note').textContent = card.note;
+
+            const isMastered = fcMasteredSet.has(card.id);
+            const masteredBadge = document.getElementById('fc-mastered-badge');
+            const markBtn = document.getElementById('btn-mark-mastered');
+
+            if (isMastered) {
+                masteredBadge.classList.remove('hidden');
+                markBtn.innerHTML = `<i class="fa-solid fa-rotate-left"></i> Batal Tandai Hafal`;
+                markBtn.classList.remove('bg-emerald-600', 'hover:bg-emerald-700');
+                markBtn.classList.add('bg-slate-600', 'hover:bg-slate-700');
+            } else {
+                masteredBadge.classList.add('hidden');
+                markBtn.innerHTML = `<i class="fa-solid fa-check-double"></i> Tandai Sudah Hafal`;
+                markBtn.classList.remove('bg-slate-600', 'hover:bg-slate-700');
+                markBtn.classList.add('bg-emerald-600', 'hover:bg-emerald-700');
+            }
+        }
+
+        function flipFlashcard() {
+            document.getElementById('flashcard-wrapper').classList.toggle('flipped');
+        }
+
+        function nextFlashcard() {
+            document.getElementById('flashcard-wrapper').classList.remove('flipped');
+            setTimeout(() => {
+                fcIndex = (fcIndex + 1) % activeFlashcards.length;
+                renderFlashcard();
+            }, 150);
+        }
+
+        function prevFlashcard() {
+            document.getElementById('flashcard-wrapper').classList.remove('flipped');
+            setTimeout(() => {
+                fcIndex = (fcIndex - 1 + activeFlashcards.length) % activeFlashcards.length;
+                renderFlashcard();
+            }, 150);
+        }
+
+        function toggleMasteredFlashcard() {
+            const card = activeFlashcards[fcIndex];
+            if (fcMasteredSet.has(card.id)) {
+                fcMasteredSet.delete(card.id);
+                showToast("Status hafalan kartu dibatalkan.", "fa-circle-info text-slate-300");
+            } else {
+                fcMasteredSet.add(card.id);
+                showToast("Hebat! Kartu ditandai sudah hafal.", "fa-circle-check text-emerald-400");
+            }
+            renderFlashcard();
+        }
+
+        /* =====================================================================
+           10. LOGIKA TAB 3: KUIS INTERAKTIF PILIHAN GANDA (40 SOAL)
+           ===================================================================== */
+        function changeQuizMode() {
+            const mode = document.getElementById('quiz-mode-select').value;
+            if (mode === 'all') {
+                activeQuizList = [...quizQuestionsData];
+            } else if (mode === 'bab1') {
+                activeQuizList = quizQuestionsData.filter(q => q.bab === 1);
+            } else if (mode === 'bab2') {
+                activeQuizList = quizQuestionsData.filter(q => q.bab === 2);
+            } else if (mode === 'bab3') {
+                activeQuizList = quizQuestionsData.filter(q => q.bab === 3);
+            }
+            currentQuizIdx = 0;
+            renderQuizQuestion();
+            renderQuizNavigator();
+            updateQuizStats();
+        }
+
+        function shuffleCurrentQuiz() {
+            for (let i = activeQuizList.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [activeQuizList[i], activeQuizList[j]] = [activeQuizList[j], activeQuizList[i]];
+            }
+            currentQuizIdx = 0;
+            renderQuizQuestion();
+            renderQuizNavigator();
+            showToast("Urutan soal pilihan ganda telah diacak!", "fa-shuffle text-amber-400");
+        }
+
+        function toggleQuizTimer() {
+            const btn = document.getElementById('btn-toggle-timer');
+            const display = document.getElementById('timer-display');
+
+            if (!timerActive) {
+                timerActive = true;
+                btn.classList.remove('bg-amber-50', 'text-amber-800');
+                btn.classList.add('bg-amber-500', 'text-white');
+                timerInterval = setInterval(() => {
+                    timerSeconds++;
+                    const mins = String(Math.floor(timerSeconds / 60)).padStart(2, '0');
+                    const secs = String(timerSeconds % 60).padStart(2, '0');
+                    display.textContent = `${mins}:${secs}`;
+                }, 1000);
+                showToast("Timer simulasi ujian diaktifkan!", "fa-stopwatch text-amber-400");
+            } else {
+                timerActive = false;
+                clearInterval(timerInterval);
+                btn.classList.remove('bg-amber-500', 'text-white');
+                btn.classList.add('bg-amber-50', 'text-amber-800');
+                display.textContent = "Timer: Off";
+            }
+        }
+
+        function renderQuizQuestion() {
+            const q = activeQuizList[currentQuizIdx];
+            const userChoice = userAnswers[q.no];
+
+            document.getElementById('q-number-badge').textContent = `Soal No. ${q.no}`;
+            document.getElementById('q-bab-badge').textContent = q.babTitle;
+            document.getElementById('q-level-badge').textContent = `Level ${q.level}`;
+            document.getElementById('q-text').innerHTML = q.question.replace(/\n/g, '<br>');
+
+            const optionsContainer = document.getElementById('q-options-container');
+            const optionKeys = ['A', 'B', 'C', 'D'];
+
+            optionsContainer.innerHTML = optionKeys.map(key => {
+                let btnStyle = "border-slate-200 bg-white hover:border-red-400 hover:bg-red-50/40 text-slate-800";
+                let circleStyle = "bg-slate-100 text-slate-700 border-slate-300";
+                let statusIcon = "";
+
+                if (userChoice) {
+                    if (key === q.answer) {
+                        btnStyle = "border-emerald-500 bg-emerald-50 text-emerald-950 ring-2 ring-emerald-500/20";
+                        circleStyle = "bg-emerald-600 text-white border-emerald-600";
+                        statusIcon = `<i class="fa-solid fa-circle-check text-emerald-600 text-lg ml-auto shrink-0"></i>`;
+                    } else if (key === userChoice && userChoice !== q.answer) {
+                        btnStyle = "border-rose-500 bg-rose-50 text-rose-950 ring-2 ring-rose-500/20";
+                        circleStyle = "bg-rose-600 text-white border-rose-600";
+                        statusIcon = `<i class="fa-solid fa-circle-xmark text-rose-600 text-lg ml-auto shrink-0"></i>`;
+                    } else {
+                        btnStyle = "border-slate-200 bg-slate-50/60 text-slate-500 opacity-75";
+                    }
+                }
+
+                return `
+                    <button onclick="selectQuizOption('${key}')" ${userChoice ? 'disabled' : ''} class="w-full text-left p-4 rounded-2xl border-2 transition-all flex items-center gap-3.5 ${btnStyle}">
+                        <span class="w-9 h-9 rounded-xl border font-display font-bold text-sm flex items-center justify-center shrink-0 ${circleStyle}">
+                            ${key}
+                        </span>
+                        <span class="text-sm sm:text-base font-medium leading-snug">${q.options[key]}</span>
+                        ${statusIcon}
+                    </button>
+                `;
+            }).join('');
+
+            // Render Feedback Box
+            const fbBox = document.getElementById('q-feedback-box');
+            const fbIcon = document.getElementById('q-feedback-icon');
+            const fbTitle = document.getElementById('q-feedback-title');
+            const fbExp = document.getElementById('q-feedback-explanation');
+
+            if (userChoice) {
+                fbBox.classList.remove('hidden', 'bg-emerald-50', 'border-emerald-200', 'text-emerald-900', 'bg-rose-50', 'border-rose-200', 'text-rose-900');
+                if (userChoice === q.answer) {
+                    fbBox.classList.add('bg-emerald-50', 'border-emerald-200', 'text-emerald-900');
+                    fbIcon.className = "w-8 h-8 rounded-full bg-emerald-600 flex items-center justify-center shrink-0 mt-0.5 text-white";
+                    fbIcon.innerHTML = `<i class="fa-solid fa-check"></i>`;
+                    fbTitle.textContent = `Tepat Sekali! Jawaban Benar: ${q.answer}`;
+                } else {
+                    fbBox.classList.add('bg-rose-50', 'border-rose-200', 'text-rose-900');
+                    fbIcon.className = "w-8 h-8 rounded-full bg-rose-600 flex items-center justify-center shrink-0 mt-0.5 text-white";
+                    fbIcon.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
+                    fbTitle.textContent = `Kurang Tepat! Kamu memilih ${userChoice}, Kunci Jawaban: ${q.answer}`;
+                }
+                fbExp.innerHTML = `<strong>Pembahasan:</strong> ${q.explanation}`;
+            } else {
+                fbBox.classList.add('hidden');
+            }
+
+            // Prev / Next button states
+            document.getElementById('btn-q-prev').disabled = currentQuizIdx === 0;
+            document.getElementById('btn-q-next').innerHTML = currentQuizIdx === activeQuizList.length - 1
+                ? `Selesai & Analisis <i class="fa-solid fa-flag-checkered"></i>`
+                : `Selanjutnya <i class="fa-solid fa-chevron-right"></i>`;
+        }
+
+        function selectQuizOption(selectedKey) {
+            const q = activeQuizList[currentQuizIdx];
+            if (userAnswers[q.no]) return; // Prevent re-answering without reset
+
+            userAnswers[q.no] = selectedKey;
+            renderQuizQuestion();
+            renderQuizNavigator();
+            updateQuizStats();
+            updateHeaderTotalScore();
+
+            if (Object.keys(userAnswers).length === quizQuestionsData.length) {
+                showQuizSummaryReport();
+                showToast("Selamat! Seluruh 40 soal Pilihan Ganda telah selesai dikerjakan!", "fa-trophy text-amber-400");
+            }
+        }
+
+        function nextQuizQuestion() {
+            if (currentQuizIdx < activeQuizList.length - 1) {
+                currentQuizIdx++;
+                renderQuizQuestion();
+                renderQuizNavigator();
+            } else {
+                showQuizSummaryReport();
+            }
+        }
+
+        function prevQuizQuestion() {
+            if (currentQuizIdx > 0) {
+                currentQuizIdx--;
+                renderQuizQuestion();
+                renderQuizNavigator();
+            }
+        }
+
+        function jumpToActiveQuizIndex(idx) {
+            currentQuizIdx = idx;
+            renderQuizQuestion();
+            renderQuizNavigator();
+        }
+
+        function renderQuizNavigator() {
+            const grid = document.getElementById('quiz-number-grid');
+            grid.innerHTML = activeQuizList.map((q, idx) => {
+                const ans = userAnswers[q.no];
+                let btnClass = "bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200";
+
+                if (ans) {
+                    btnClass = ans === q.answer
+                        ? "bg-emerald-500 text-white border-emerald-600"
+                        : "bg-rose-500 text-white border-rose-600";
+                }
+                if (idx === currentQuizIdx) {
+                    btnClass += " ring-2 ring-offset-1 ring-slate-900 font-extrabold scale-105";
+                }
+
+                return `
+                    <button onclick="jumpToActiveQuizIndex(${idx})" class="h-9 rounded-lg border text-xs font-bold transition ${btnClass}">
+                        ${q.no}
+                    </button>
+                `;
+            }).join('');
+        }
+
+        function updateQuizStats() {
+            const totalInMode = activeQuizList.length;
+            let answeredInMode = 0;
+            let correctInMode = 0;
+            let wrongInMode = 0;
+
+            activeQuizList.forEach(q => {
+                if (userAnswers[q.no]) {
+                    answeredInMode++;
+                    if (userAnswers[q.no] === q.answer) correctInMode++;
+                    else wrongInMode++;
+                }
+            });
+
+            const percent = totalInMode > 0 ? Math.round((correctInMode / totalInMode) * 100) : 0;
+
+            document.getElementById('quiz-answered-count').textContent = answeredInMode;
+            document.getElementById('quiz-total-count').textContent = totalInMode;
+            document.getElementById('quiz-correct-count').textContent = correctInMode;
+            document.getElementById('quiz-wrong-count').textContent = wrongInMode;
+            document.getElementById('quiz-percent-score').textContent = `${percent}%`;
+            document.getElementById('quiz-progress-bar').style.width = `${(answeredInMode / totalInMode) * 100}%`;
+        }
+
+        function showQuizSummaryReport() {
+            const panel = document.getElementById('quiz-analysis-panel');
+            panel.classList.remove('hidden');
+
+            // Calculate per Bab across all 40 questions
+            const babStats = {
+                1: { correct: 0, total: 14 },
+                2: { correct: 0, total: 13 },
+                3: { correct: 0, total: 13 }
+            };
+
+            let totalCorrectAll = 0;
+            quizQuestionsData.forEach(q => {
+                if (userAnswers[q.no] === q.answer) {
+                    babStats[q.bab].correct++;
+                    totalCorrectAll++;
+                }
+            });
+
+            const p1 = Math.round((babStats[1].correct / babStats[1].total) * 100);
+            const p2 = Math.round((babStats[2].correct / babStats[2].total) * 100);
+            const p3 = Math.round((babStats[3].correct / babStats[3].total) * 100);
+            const overallPercent = Math.round((totalCorrectAll / 40) * 100);
+
+            document.getElementById('stat-bab1-text').textContent = `${babStats[1].correct} / ${babStats[1].total} Benar (${p1}%)`;
+            document.getElementById('stat-bab1-bar').style.width = `${p1}%`;
+
+            document.getElementById('stat-bab2-text').textContent = `${babStats[2].correct} / ${babStats[2].total} Benar (${p2}%)`;
+            document.getElementById('stat-bab2-bar').style.width = `${p2}%`;
+
+            document.getElementById('stat-bab3-text').textContent = `${babStats[3].correct} / ${babStats[3].total} Benar (${p3}%)`;
+            document.getElementById('stat-bab3-bar').style.width = `${p3}%`;
+
+            // Predicate badge
+            const predBadge = document.getElementById('quiz-predicate-badge');
+            let predText = "Perlu Belajar Lagi";
+            let predClass = "bg-rose-500/20 border-rose-400 text-rose-300";
+
+            if (overallPercent >= 86) {
+                predText = `Predikat: Sangat Baik (${overallPercent})`;
+                predClass = "bg-emerald-500/20 border-emerald-400 text-emerald-300";
+            } else if (overallPercent >= 75) {
+                predText = `Predikat: Baik (${overallPercent})`;
+                predClass = "bg-sky-500/20 border-sky-400 text-sky-300";
+            } else if (overallPercent >= 60) {
+                predText = `Predikat: Cukup (${overallPercent})`;
+                predClass = "bg-amber-500/20 border-amber-400 text-amber-300";
+            } else {
+                predText = `Predikat: Perlu Belajar Lagi (${overallPercent})`;
+            }
+            predBadge.textContent = predText;
+            predBadge.className = `px-4 py-2 rounded-xl border font-display font-bold text-sm text-center ${predClass}`;
+
+            // Personalized Recommendation
+            const lowestBab = [
+                { name: "Bab I (Sejarah Kelahiran Pancasila)", pct: p1 },
+                { name: "Bab II (Penerapan Nilai Pancasila)", pct: p2 },
+                { name: "Bab III (Patuh Terhadap Norma)", pct: p3 }
+            ].sort((a, b) => a.pct - b.pct)[0];
+
+            const answeredTotal = Object.keys(userAnswers).length;
+            if (answeredTotal === 0) {
+                document.getElementById('quiz-recommendation-text').innerHTML = `Kamu belum menjawab soal Pilihan Ganda. Mulailah memilih jawaban pada soal di atas untuk melihat analisis penguasaan materi.`;
+            } else if (overallPercent >= 85) {
+                document.getElementById('quiz-recommendation-text').innerHTML = `<strong class="text-emerald-400">Luar Biasa!</strong> Penguasaan materimu di seluruh bab sudah sangat matang. Lanjutkan mengasah kemampuan analisis di <strong>Tab 4: Latihan Uraian & Rubrik</strong>.`;
+            } else {
+                document.getElementById('quiz-recommendation-text').innerHTML = `Kamu telah menjawab <strong>${answeredTotal} dari 40 soal</strong>. Fokus pendalaman materi yang paling disarankan saat ini adalah <strong>${lowestBab.name}</strong> (${lowestBab.pct}%). Pelajari kembali ringkasan materi dan Flashcards pada bab tersebut!`;
+            }
+
+            panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function openResetModal() {
+            document.getElementById('reset-modal').classList.remove('hidden');
+        }
+
+        function closeResetModal() {
+            document.getElementById('reset-modal').classList.add('hidden');
+        }
+
+        function confirmResetQuiz() {
+            userAnswers = {};
+            currentQuizIdx = 0;
+            timerSeconds = 0;
+            document.getElementById('quiz-analysis-panel').classList.add('hidden');
+            closeResetModal();
+            renderQuizQuestion();
+            renderQuizNavigator();
+            updateQuizStats();
+            updateHeaderTotalScore();
+            showToast("Kuis Pilihan Ganda telah direset. Selamat berlatih kembali!", "fa-rotate-right text-amber-400");
+        }
+
+        /* =====================================================================
+           11. LOGIKA TAB 4: LATIHAN URAIAN & RUBRIK PENILAIAN (NO. 41 - 50)
+           ===================================================================== */
+        function renderEssayQuestions() {
+            const container = document.getElementById('uraian-questions-container');
+            container.innerHTML = essayQuestionsData.map(item => {
+                const savedText = userEssayTexts[item.no] || "";
+                const savedScore = userEssayScores[item.no] !== undefined ? userEssayScores[item.no] : null;
+
+                return `
+                    <div id="essay-card-${item.no}" class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-7 shadow-sm transition-all">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+                            <div class="flex items-center gap-2">
+                                <span class="px-3.5 py-1.5 rounded-xl bg-sky-700 text-white font-display font-bold text-sm">
+                                    Uraian No. ${item.no}
+                                </span>
+                                <span class="px-3 py-1 rounded-lg bg-slate-100 text-slate-700 text-xs font-bold">
+                                    ${item.bab}
+                                </span>
+                            </div>
+                            <span class="px-2.5 py-1 rounded-lg bg-purple-100 text-purple-800 text-xs font-bold">
+                                Level ${item.level} • Maks. 4 Poin
+                            </span>
+                        </div>
+
+                        <p class="text-base sm:text-lg font-semibold text-slate-900 leading-relaxed mb-4">
+                            ${item.question}
+                        </p>
+
+                        <!-- Student Answer Box -->
+                        <div class="mb-4">
+                            <label for="essay-input-${item.no}" class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">
+                                Jawaban Kamu:
+                            </label>
+                            <textarea id="essay-input-${item.no}" rows="4" oninput="saveEssayInput(${item.no}, this.value)" placeholder="Tuliskan jawaban lengkapmu di sini sebelum membuka kunci jawaban..." class="w-full rounded-xl border border-slate-300 p-3.5 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 bg-slate-50/50">${savedText}</textarea>
+                        </div>
+
+                        <!-- Toggle Answer Key & Rubric Button -->
+                        <div class="flex flex-wrap items-center justify-between gap-3">
+                            <button onclick="toggleEssayKey(${item.no})" id="btn-toggle-key-${item.no}" class="px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs sm:text-sm font-bold transition flex items-center gap-2">
+                                <i class="fa-solid fa-key text-amber-400"></i>
+                                <span>Lihat Kunci Jawaban & Rubrik Skor</span>
+                            </button>
+
+                            <div class="text-xs font-bold text-slate-500">
+                                Skor Mandiri Kamu: <span id="essay-badge-score-${item.no}" class="text-sky-700 font-extrabold text-sm">${savedScore !== null ? savedScore + ' / 4' : 'Belum dinilai'}</span>
+                            </div>
+                        </div>
+
+                        <!-- Collapsible Answer Key & Self-Assessment Rubric -->
+                        <div id="essay-key-box-${item.no}" class="hidden mt-5 pt-5 border-t border-slate-200 space-y-4">
+                            <!-- Kunci Jawaban -->
+                            <div class="bg-emerald-50/80 border border-emerald-200 rounded-2xl p-4 sm:p-5">
+                                <h4 class="font-display font-bold text-sm text-emerald-900 flex items-center gap-2 mb-2">
+                                    <i class="fa-solid fa-circle-check text-emerald-600"></i>
+                                    Kunci Jawaban Ideal (Sesuai Dokumen):
+                                </h4>
+                                <div class="space-y-2 text-sm text-emerald-950 leading-relaxed">
+                                    ${item.answerKey.map(line => `<p>${line}</p>`).join('')}
+                                </div>
+                            </div>
+
+                            <!-- Rubrik Penskoran Mandiri -->
+                            <div class="bg-amber-50/70 border border-amber-200 rounded-2xl p-4 sm:p-5">
+                                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                                    <h4 class="font-display font-bold text-sm text-amber-950 flex items-center gap-2">
+                                        <i class="fa-solid fa-scale-balanced text-amber-600"></i>
+                                        Rubrik Penilaian Mandiri (Pilih Skor 0 – 4):
+                                    </h4>
+                                    <div class="flex items-center gap-1.5" id="rubric-btn-group-${item.no}">
+                                        ${[0, 1, 2, 3, 4].map(sc => `
+                                            <button onclick="setEssayScore(${item.no}, ${sc})" id="btn-score-${item.no}-${sc}" class="w-9 h-9 rounded-xl border font-display font-bold text-sm transition ${savedScore === sc ? 'bg-sky-600 text-white border-sky-700 shadow-sm' : 'bg-white text-slate-700 border-amber-300 hover:bg-amber-100'}">
+                                                ${sc}
+                                            </button>
+                                        `).join('')}
+                                    </div>
+                                </div>
+
+                                <ul class="space-y-1.5 text-xs text-slate-700">
+                                    ${item.rubric.map(r => `
+                                        <li class="flex items-start gap-2">
+                                            <span class="px-2 py-0.5 rounded bg-amber-200/80 text-amber-950 font-bold shrink-0">Skor ${r.score}</span>
+                                            <span class="pt-0.5">${r.desc}</span>
+                                        </li>
+                                    `).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function saveEssayInput(no, val) {
+            userEssayTexts[no] = val;
+        }
+
+        function toggleEssayKey(no) {
+            const box = document.getElementById(`essay-key-box-${no}`);
+            const btn = document.getElementById(`btn-toggle-key-${no}`);
+            const isHidden = box.classList.contains('hidden');
+
+            if (isHidden) {
+                box.classList.remove('hidden');
+                btn.innerHTML = `<i class="fa-solid fa-eye-slash text-amber-400"></i> <span>Sembunyikan Kunci Jawaban</span>`;
+            } else {
+                box.classList.add('hidden');
+                btn.innerHTML = `<i class="fa-solid fa-key text-amber-400"></i> <span>Lihat Kunci Jawaban & Rubrik Skor</span>`;
+            }
+        }
+
+        function setEssayScore(no, score) {
+            userEssayScores[no] = score;
+            document.getElementById(`essay-badge-score-${no}`).textContent = `${score} / 4`;
+
+            // Update button active styles
+            [0, 1, 2, 3, 4].forEach(sc => {
+                const btn = document.getElementById(`btn-score-${no}-${sc}`);
+                if (sc === score) {
+                    btn.className = "w-9 h-9 rounded-xl border font-display font-bold text-sm transition bg-sky-600 text-white border-sky-700 shadow-sm";
+                } else {
+                    btn.className = "w-9 h-9 rounded-xl border font-display font-bold text-sm transition bg-white text-slate-700 border-amber-300 hover:bg-amber-100";
+                }
+            });
+
+            updateEssayTotalScore();
+            updateHeaderTotalScore();
+            showToast(`Skor Uraian No. ${no} disimpan: ${score}/4 poin.`, "fa-check-circle text-sky-400");
+        }
+
+        function updateEssayTotalScore() {
+            const totalPoints = Object.values(userEssayScores).reduce((acc, v) => acc + v, 0);
+            const percent = Math.round((totalPoints / 40) * 100);
+            document.getElementById('uraian-total-points').textContent = totalPoints;
+            document.getElementById('uraian-percent-display').textContent = `${percent}%`;
+        }
+
+        /* =====================================================================
+           12. PERHITUNGAN NILAI GABUNGAN (PG 70% + URAIAN 30%) DI HEADER
+           ===================================================================== */
+        function updateHeaderTotalScore() {
+            let pgCorrect = 0;
+            quizQuestionsData.forEach(q => {
+                if (userAnswers[q.no] === q.answer) pgCorrect++;
+            });
+
+            const essayPoints = Object.values(userEssayScores).reduce((acc, v) => acc + v, 0);
+
+            // Bobot PG 70% (maks 70) + Bobot Uraian 30% (maks 30)
+            const weightedPG = (pgCorrect / 40) * 70;
+            const weightedEssay = (essayPoints / 40) * 30;
+            const finalGrade = (weightedPG + weightedEssay).toFixed(1);
+
+            document.getElementById('header-pg-score').textContent = `${pgCorrect}/40`;
+            document.getElementById('header-uraian-score').textContent = `${essayPoints}/40`;
+            document.getElementById('header-total-score').textContent = finalGrade;
+        }
+
+        /* =====================================================================
+           13. KEYBOARD SHORTCUTS UNTUK FLASHCARDS
+           ===================================================================== */
+        document.addEventListener('keydown', (e) => {
+            if (currentTab === 'flashcards') {
+                if (e.code === 'Space') {
+                    e.preventDefault();
+                    flipFlashcard();
+                } else if (e.code === 'ArrowRight') {
+                    nextFlashcard();
+                } else if (e.code === 'ArrowLeft') {
+                    prevFlashcard();
+                }
+            }
+        });
+
+        /* =====================================================================
+           14. INISIALISASI HALAMAN SAAT PERTAMA DIMUAT
+           ===================================================================== */
+        window.addEventListener('DOMContentLoaded', () => {
+            selectChapter(1);
+            renderKisiTable();
+            renderFlashcard();
+            renderQuizQuestion();
+            renderQuizNavigator();
+            updateQuizStats();
+            renderEssayQuestions();
+            updateHeaderTotalScore();
+        });
+    </script>
+</body>
+</html>
